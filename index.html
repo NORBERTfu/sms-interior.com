@@ -46,25 +46,25 @@
     .nav-drawer.open { display:flex; }
 
     /* HERO */
-    #hero { position:relative; height:100svh; min-height:560px; display:flex; align-items:flex-end; overflow:hidden; }
+    #hero { position:relative; height:100vh; min-height:600px; overflow:hidden; }
     .hero-slides { position:absolute; inset:0; }
     .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
     .hero-slide.active { opacity:1; }
     .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center; }
-    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(44,44,44,0.6) 0%, rgba(44,44,44,0.1) 60%, transparent 100%); }
-    .hero-kanji { position:absolute; top:50%; right:6%; transform:translateY(-50%); font-family:var(--font-head); font-weight:300; font-size:clamp(160px,20vw,300px); line-height:1; color:rgba(255,255,255,0.1); pointer-events:none; user-select:none; }
-    .hero-content { position:relative; z-index:1; padding:0 48px 80px; max-width:700px; }
-    .hero-eyebrow { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:20px; }
-    .hero-title { font-family:var(--font-head); font-weight:300; font-size:clamp(34px,5vw,64px); line-height:1.18; letter-spacing:0.06em; color:var(--white); margin-bottom:24px; }
-    .hero-title em { font-style:normal; display:block; font-size:0.5em; letter-spacing:0.2em; color:rgba(255,255,255,0.65); margin-top:8px; }
-    .hero-desc { font-size:13px; line-height:2; color:rgba(255,255,255,0.75); max-width:420px; margin-bottom:40px; }
-    .btn-outline { display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--white); border:1px solid rgba(255,255,255,0.5); padding:14px 28px; transition:background var(--trans),border-color var(--trans); }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.25) 55%, transparent 100%); }
+    .hero-kanji { position:absolute; top:50%; right:6%; transform:translateY(-50%); font-family:var(--font-head); font-weight:300; font-size:clamp(160px,20vw,300px); line-height:1; color:rgba(255,255,255,0.07); pointer-events:none; user-select:none; }
+    .hero-content { position:absolute; bottom:80px; left:0; right:0; z-index:2; padding:0 60px; max-width:720px; }
+    .hero-eyebrow { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:20px; }
+    .hero-title { font-family:var(--font-head); font-weight:300; font-size:clamp(32px,3.8vw,56px); line-height:1.2; letter-spacing:0.06em; color:var(--white); margin-bottom:20px; }
+    .hero-title em { font-style:normal; display:block; font-size:0.48em; letter-spacing:0.2em; color:rgba(255,255,255,0.55); margin-top:10px; }
+    .hero-desc { font-size:13px; line-height:2; color:rgba(255,255,255,0.7); max-width:400px; margin-bottom:36px; }
+    .btn-outline { display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--white); border:1px solid rgba(255,255,255,0.45); padding:13px 26px; transition:background var(--trans),border-color var(--trans); }
     .btn-outline:hover { background:rgba(255,255,255,0.15); border-color:var(--white); }
     .btn-outline svg { transition:transform var(--trans); }
     .btn-outline:hover svg { transform:translateX(4px); }
     .hero-scroll { position:absolute; bottom:32px; right:48px; z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; }
-    .hero-scroll span { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.5); writing-mode:vertical-rl; }
-    .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent); animation:scrollAnim 2s ease-in-out infinite; }
+    .hero-scroll span { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.45); writing-mode:vertical-rl; }
+    .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(255,255,255,0.45),transparent); animation:scrollAnim 2s ease-in-out infinite; }
     @keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top;opacity:1} 50%{transform:scaleY(1);transform-origin:top;opacity:1} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom;opacity:0.3} }
 
     /* SECTIONS */
@@ -491,7 +491,6 @@ PROJECTS.forEach((p, i) => {
     <div class="portfolio-overlay">
       <div class="portfolio-info">
         <h3>${p.zh}</h3>
-        <p>${p.en}</p>
       </div>
     </div>`;
   item.addEventListener('click', () => openLightbox(i));
