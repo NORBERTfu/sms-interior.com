@@ -8,1381 +8,618 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet" />
   <style>
-    /* ─── Reset & Base ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:        #F5F5F0;
-      --surface:   #EFEFEA;
-      --accent:    #BDBDBD;
-      --accent-dk: #999999;
-      --text:      #2C2C2C;
-      --text-soft: #7A7A7A;
-      --white:     #FFFFFF;
-      --nav-h:     64px;
+      --bg:#F5F5F0; --surface:#EFEFEA; --accent:#BDBDBD; --accent-dk:#999;
+      --text:#2C2C2C; --text-soft:#7A7A7A; --white:#FFF; --nav-h:64px;
+      --font-head:'Noto Serif TC',serif; --font-body:'Noto Sans TC',sans-serif;
+      --trans:0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-weight:300; font-size:15px; line-height:1.85; -webkit-font-smoothing:antialiased; }
+    img { display:block; width:100%; height:100%; object-fit:cover; }
+    a { color:inherit; text-decoration:none; }
+    ul { list-style:none; }
+    .container { width:100%; max-width:1100px; margin:0 auto; padding:0 48px; }
 
-      --font-head: 'Noto Serif TC', serif;
-      --font-body: 'Noto Sans TC', sans-serif;
+    /* NAV */
+    #nav { position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:100; background:rgba(245,245,240,0.92); backdrop-filter:blur(12px); border-bottom:1px solid transparent; transition:border-color var(--trans); }
+    #nav.scrolled { border-color:var(--accent); }
+    .nav-inner { height:100%; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { width:auto; height:36px; object-fit:contain; }
+    .nav-logo .zh { font-family:var(--font-head); font-weight:300; font-size:16px; letter-spacing:0.12em; }
+    .nav-logo .en { font-size:9px; letter-spacing:0.28em; color:var(--accent-dk); text-transform:uppercase; }
+    .nav-links { display:flex; align-items:center; gap:40px; }
+    .nav-links a { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-soft); position:relative; padding-bottom:2px; transition:color var(--trans); }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--text); transition:width var(--trans); }
+    .nav-links a:hover { color:var(--text); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-toggle span { display:block; width:22px; height:1px; background:var(--text); transition:transform var(--trans),opacity var(--trans); }
+    .nav-toggle.open span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity:0; }
+    .nav-toggle.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+    .nav-drawer { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--accent); padding:24px 48px; }
+    .nav-drawer a { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-soft); padding:12px 0; border-bottom:1px solid var(--surface); transition:color var(--trans); }
+    .nav-drawer a:hover { color:var(--text); }
+    .nav-drawer.open { display:flex; }
 
-      --radius:  2px;
-      --trans:   0.35s cubic-bezier(0.4,0,0.2,1);
-    }
+    /* HERO */
+    #hero { position:relative; height:100svh; min-height:560px; display:flex; align-items:flex-end; overflow:hidden; }
+    .hero-slides { position:absolute; inset:0; }
+    .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
+    .hero-slide.active { opacity:1; }
+    .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(44,44,44,0.6) 0%, rgba(44,44,44,0.1) 60%, transparent 100%); }
+    .hero-kanji { position:absolute; top:50%; right:6%; transform:translateY(-50%); font-family:var(--font-head); font-weight:300; font-size:clamp(160px,20vw,300px); line-height:1; color:rgba(255,255,255,0.1); pointer-events:none; user-select:none; }
+    .hero-content { position:relative; z-index:1; padding:0 48px 80px; max-width:700px; }
+    .hero-eyebrow { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:20px; }
+    .hero-title { font-family:var(--font-head); font-weight:300; font-size:clamp(34px,5vw,64px); line-height:1.18; letter-spacing:0.06em; color:var(--white); margin-bottom:24px; }
+    .hero-title em { font-style:normal; display:block; font-size:0.5em; letter-spacing:0.2em; color:rgba(255,255,255,0.65); margin-top:8px; }
+    .hero-desc { font-size:13px; line-height:2; color:rgba(255,255,255,0.75); max-width:420px; margin-bottom:40px; }
+    .btn-outline { display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--white); border:1px solid rgba(255,255,255,0.5); padding:14px 28px; transition:background var(--trans),border-color var(--trans); }
+    .btn-outline:hover { background:rgba(255,255,255,0.15); border-color:var(--white); }
+    .btn-outline svg { transition:transform var(--trans); }
+    .btn-outline:hover svg { transform:translateX(4px); }
+    .hero-scroll { position:absolute; bottom:32px; right:48px; z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; }
+    .hero-scroll span { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.5); writing-mode:vertical-rl; }
+    .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent); animation:scrollAnim 2s ease-in-out infinite; }
+    @keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top;opacity:1} 50%{transform:scaleY(1);transform-origin:top;opacity:1} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom;opacity:0.3} }
 
-    html { scroll-behavior: smooth; }
+    /* SECTIONS */
+    section { padding:120px 0; }
+    .section-label { font-size:9px; letter-spacing:0.38em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:16px; }
+    .section-title { font-family:var(--font-head); font-weight:300; font-size:clamp(24px,3.2vw,38px); line-height:1.3; letter-spacing:0.05em; }
+    .section-title span { display:block; font-family:var(--font-body); font-size:0.4em; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-dk); margin-top:6px; }
+    .divider { width:40px; height:1px; background:var(--accent); margin:28px 0; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 1.85;
-      -webkit-font-smoothing: antialiased;
-    }
+    /* ABOUT */
+    #about { background:var(--bg); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-text p { font-size:14px; line-height:2.1; color:var(--text-soft); margin-bottom:20px; }
+    .about-text strong { font-weight:400; color:var(--text); }
+    .about-visual { position:relative; }
+    .about-img-wrap { width:100%; aspect-ratio:4/5; overflow:hidden; }
+    .about-img-wrap img { width:100%; height:100%; object-fit:cover; }
+    .about-accent-block { position:absolute; bottom:-24px; right:-24px; width:140px; height:140px; background:var(--surface); border:1px solid var(--accent); z-index:-1; }
+    .about-stats { display:flex; gap:40px; margin-top:48px; padding-top:40px; border-top:1px solid var(--surface); }
+    .stat-num { font-family:var(--font-head); font-weight:300; font-size:36px; letter-spacing:-0.02em; color:var(--text); line-height:1; }
+    .stat-unit { font-size:12px; color:var(--accent-dk); margin-left:2px; }
+    .stat-label { font-size:11px; letter-spacing:0.15em; color:var(--text-soft); margin-top:6px; }
 
-    img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    a   { color: inherit; text-decoration: none; }
-    ul  { list-style: none; }
+    /* SERVICES */
+    #services { background:var(--surface); }
+    .services-head { margin-bottom:72px; }
+    .service-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--accent); border:1px solid var(--accent); }
+    .service-card { background:var(--bg); padding:48px 36px; transition:background var(--trans); }
+    .service-card:hover { background:var(--white); }
+    .service-icon { width:44px; height:44px; margin-bottom:32px; }
+    .service-icon svg { width:44px; height:44px; stroke:var(--accent-dk); fill:none; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; transition:stroke var(--trans); }
+    .service-card:hover .service-icon svg { stroke:var(--text); }
+    .service-title { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.06em; margin-bottom:16px; }
+    .service-en { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:20px; display:block; }
+    .service-desc { font-size:13px; line-height:1.95; color:var(--text-soft); }
 
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 48px;
-    }
+    /* PORTFOLIO */
+    #portfolio { background:var(--bg); }
+    .portfolio-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; }
+    .link-more { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-soft); display:flex; align-items:center; gap:8px; transition:color var(--trans); }
+    .link-more svg { transition:transform var(--trans); }
+    .link-more:hover { color:var(--text); }
+    .link-more:hover svg { transform:translateX(4px); }
+    .portfolio-filter { display:flex; gap:0; margin-bottom:48px; border-bottom:1px solid var(--accent); overflow-x:auto; }
+    .filter-tab { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-soft); padding:10px 20px; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; white-space:nowrap; transition:color var(--trans),border-color var(--trans); }
+    .filter-tab:hover, .filter-tab.active { color:var(--text); border-color:var(--text); }
 
-    /* ─── Nav ───────────────────────────────────────────────── */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      z-index: 100;
-      background: rgba(245,245,240,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid transparent;
-      transition: border-color var(--trans);
-    }
-    #nav.scrolled { border-color: var(--accent); }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+    .portfolio-item { position:relative; overflow:hidden; cursor:pointer; aspect-ratio:4/3; }
+    .portfolio-item.tall { aspect-ratio:3/4; }
+    .portfolio-thumb { width:100%; height:100%; }
+    .portfolio-thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .portfolio-item:hover .portfolio-thumb img { transform:scale(1.04); }
+    .portfolio-overlay { position:absolute; inset:0; background:rgba(44,44,44,0); display:flex; align-items:flex-end; padding:24px; transition:background var(--trans); }
+    .portfolio-item:hover .portfolio-overlay { background:rgba(44,44,44,0.55); }
+    .portfolio-info { transform:translateY(10px); opacity:0; transition:transform var(--trans),opacity var(--trans); }
+    .portfolio-item:hover .portfolio-info { transform:translateY(0); opacity:1; }
+    .portfolio-info h3 { font-family:var(--font-head); font-weight:300; font-size:15px; letter-spacing:0.06em; color:var(--white); margin-bottom:4px; }
+    .portfolio-info p { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.65); }
+    .portfolio-item.hidden { display:none; }
 
-    .nav-inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    /* LIGHTBOX */
+    #lightbox { position:fixed; inset:0; z-index:999; background:rgba(20,20,20,0.97); display:none; flex-direction:column; }
+    #lightbox.open { display:flex; }
+    .lb-header { position:absolute; top:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:20px 32px; z-index:2; background:linear-gradient(to bottom,rgba(0,0,0,0.6),transparent); }
+    .lb-title { font-family:var(--font-head); font-weight:300; font-size:16px; letter-spacing:0.1em; color:rgba(255,255,255,0.85); }
+    .lb-counter { font-size:11px; letter-spacing:0.2em; color:rgba(255,255,255,0.45); }
+    .lb-close { width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(255,255,255,0.6); transition:color var(--trans); font-size:22px; background:none; border:none; }
+    .lb-close:hover { color:var(--white); }
+    .lb-main { flex:1; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .lb-img-wrap { max-width:90vw; max-height:80vh; position:relative; }
+    .lb-img-wrap img { max-width:90vw; max-height:80vh; width:auto; height:auto; object-fit:contain; display:block; }
+    .lb-btn { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border:1px solid rgba(255,255,255,0.2); background:rgba(0,0,0,0.3); color:rgba(255,255,255,0.7); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background var(--trans),color var(--trans); z-index:2; }
+    .lb-btn:hover { background:rgba(255,255,255,0.15); color:var(--white); }
+    .lb-prev { left:16px; }
+    .lb-next { right:16px; }
+    .lb-thumbs { height:80px; display:flex; gap:4px; padding:8px 20px; overflow-x:auto; background:rgba(0,0,0,0.4); align-items:center; justify-content:center; flex-shrink:0; }
+    .lb-thumbs::-webkit-scrollbar { height:3px; }
+    .lb-thumbs::-webkit-scrollbar-track { background:transparent; }
+    .lb-thumbs::-webkit-scrollbar-thumb { background:var(--accent); }
+    .lb-thumb { width:56px; height:56px; flex-shrink:0; cursor:pointer; opacity:0.45; transition:opacity var(--trans); overflow:hidden; }
+    .lb-thumb.active, .lb-thumb:hover { opacity:1; }
+    .lb-thumb img { width:100%; height:100%; object-fit:cover; }
 
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-    .nav-logo .zh {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: 16px;
-      letter-spacing: 0.12em;
-      color: var(--text);
-    }
-    .nav-logo .en {
-      font-size: 9px;
-      letter-spacing: 0.28em;
-      color: var(--accent-dk);
-      text-transform: uppercase;
-    }
+    /* PRESS */
+    #press { background:var(--surface); padding:72px 0; }
+    .press-label { font-size:9px; letter-spacing:0.38em; text-transform:uppercase; color:var(--accent-dk); text-align:center; margin-bottom:36px; }
+    .press-logos { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; }
+    .press-item { padding:20px 32px; border-right:1px solid var(--accent); text-align:center; }
+    .press-item:first-child { border-left:1px solid var(--accent); }
+    .press-name { font-family:var(--font-head); font-weight:300; font-size:13px; letter-spacing:0.12em; color:var(--accent-dk); }
+    .press-sub { font-size:9px; letter-spacing:0.2em; color:var(--accent); margin-top:3px; }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
-    .nav-links a {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      position: relative;
-      padding-bottom: 2px;
-      transition: color var(--trans);
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 1px;
-      background: var(--text);
-      transition: width var(--trans);
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
+    /* CONTACT */
+    #contact { background:var(--bg); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .contact-info p { font-size:13px; line-height:2; color:var(--text-soft); margin-bottom:40px; }
+    .contact-details { display:flex; flex-direction:column; gap:20px; }
+    .contact-detail { display:flex; gap:20px; align-items:flex-start; }
+    .detail-icon { width:36px; height:36px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .detail-icon svg { width:16px; height:16px; stroke:var(--accent-dk); fill:none; stroke-width:1.2; stroke-linecap:round; }
+    .detail-text .label { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:3px; }
+    .detail-text .value { font-size:13px; color:var(--text); line-height:1.6; }
+    .contact-form { display:flex; flex-direction:column; gap:20px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-group { display:flex; flex-direction:column; gap:8px; }
+    .form-group label { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-dk); }
+    .form-group input, .form-group textarea, .form-group select { background:var(--surface); border:1px solid var(--surface); border-bottom-color:var(--accent); padding:12px 16px; font-family:var(--font-body); font-size:13px; font-weight:300; color:var(--text); outline:none; border-radius:0; transition:border-color var(--trans),background var(--trans); -webkit-appearance:none; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { background:var(--white); border-color:var(--accent); border-bottom-color:var(--text); }
+    .form-group textarea { resize:none; height:120px; }
+    .form-group select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; }
+    .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:12px; background:var(--text); color:var(--bg); border:1px solid var(--text); padding:16px 36px; font-family:var(--font-body); font-size:10px; font-weight:400; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:background var(--trans),color var(--trans); align-self:flex-start; }
+    .btn-primary:hover { background:transparent; color:var(--text); }
 
-    /* hamburger */
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 22px; height: 1px;
-      background: var(--text);
-      transition: transform var(--trans), opacity var(--trans);
-    }
-    .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    /* FOOTER */
+    footer { background:var(--text); color:rgba(245,245,240,0.55); padding:56px 0; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+    .footer-brand .zh { font-family:var(--font-head); font-weight:300; font-size:17px; letter-spacing:0.12em; color:rgba(245,245,240,0.9); }
+    .footer-brand .en { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(245,245,240,0.35); margin-top:4px; }
+    .footer-copy { font-size:10px; letter-spacing:0.15em; }
+    .footer-links { display:flex; gap:28px; }
+    .footer-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(245,245,240,0.45); transition:color var(--trans); }
+    .footer-links a:hover { color:rgba(245,245,240,0.9); }
 
-    /* mobile drawer */
-    .nav-drawer {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      background: var(--bg);
-      border-top: 1px solid var(--accent);
-      padding: 24px 48px;
-    }
-    .nav-drawer a {
-      font-size: 13px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      padding: 12px 0;
-      border-bottom: 1px solid var(--surface);
-      transition: color var(--trans);
-    }
-    .nav-drawer a:hover { color: var(--text); }
-    .nav-drawer.open { display: flex; }
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
 
-    /* ─── Hero ──────────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      height: 100svh;
-      min-height: 560px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(160deg, #E8E8E3 0%, #D6D4CC 40%, #C8C4BA 100%);
-    }
-    /* Subtle geometric texture overlay */
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255,255,255,0.04) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.04) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.04) 75%);
-      background-size: 60px 60px;
-    }
-
-    /* Large decorative kanji */
-    .hero-kanji {
-      position: absolute;
-      top: 50%;
-      right: 8%;
-      transform: translateY(-50%);
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: clamp(180px, 22vw, 340px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.18);
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 48px 80px;
-      max-width: 700px;
-    }
-    .hero-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: clamp(36px, 5.5vw, 68px);
-      line-height: 1.18;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-    .hero-title em {
-      font-style: normal;
-      display: block;
-      font-size: 0.54em;
-      letter-spacing: 0.18em;
-      color: var(--text-soft);
-      margin-top: 8px;
-    }
-    .hero-desc {
-      font-size: 13px;
-      line-height: 2;
-      color: var(--text-soft);
-      max-width: 420px;
-      margin-bottom: 40px;
-    }
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--text);
-      border: 1px solid var(--accent);
-      padding: 14px 28px;
-      transition: background var(--trans), border-color var(--trans), color var(--trans);
-    }
-    .btn-outline:hover {
-      background: var(--text);
-      border-color: var(--text);
-      color: var(--bg);
-    }
-    .btn-outline svg { transition: transform var(--trans); }
-    .btn-outline:hover svg { transform: translateX(4px); }
-
-    /* scroll indicator */
-    .hero-scroll {
-      position: absolute;
-      bottom: 32px;
-      right: 48px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .hero-scroll span {
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      writing-mode: vertical-rl;
-    }
-    .scroll-line {
-      width: 1px;
-      height: 48px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      animation: scrollAnim 2s ease-in-out infinite;
-    }
-    @keyframes scrollAnim {
-      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
-      50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
-      51%  { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
-    }
-
-    /* ─── Section shared ─────────────────────────────────────── */
-    section { padding: 120px 0; }
-
-    .section-label {
-      font-size: 9px;
-      letter-spacing: 0.38em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: clamp(24px, 3.2vw, 38px);
-      line-height: 1.3;
-      letter-spacing: 0.05em;
-      color: var(--text);
-    }
-    .section-title span {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 0.4em;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      margin-top: 6px;
-    }
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--accent);
-      margin: 28px 0;
-    }
-
-    /* ─── About ──────────────────────────────────────────────── */
-    #about { background: var(--bg); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-text p {
-      font-size: 14px;
-      line-height: 2.1;
-      color: var(--text-soft);
-      margin-bottom: 20px;
-    }
-    .about-text p:last-of-type { margin-bottom: 0; }
-    .about-text strong {
-      font-weight: 400;
-      color: var(--text);
-    }
-
-    .about-visual {
-      position: relative;
-    }
-    .about-img-wrap {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: var(--surface);
-      overflow: hidden;
-      position: relative;
-    }
-    /* Placeholder pattern for about image */
-    .about-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, #E2E0DA 0%, #D0CEC7 50%, #C4C2BB 100%);
-    }
-    .about-img-wrap::after {
-      content: '山';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-head);
-      font-size: 120px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.25);
-      line-height: 1;
-    }
-    /* Offset accent block */
-    .about-accent-block {
-      position: absolute;
-      bottom: -24px;
-      right: -24px;
-      width: 140px;
-      height: 140px;
-      background: var(--surface);
-      border: 1px solid var(--accent);
-      z-index: -1;
-    }
-
-    .about-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 48px;
-      padding-top: 40px;
-      border-top: 1px solid var(--surface);
-    }
-    .stat-item { flex: 1; }
-    .stat-num {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: 36px;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      line-height: 1;
-    }
-    .stat-unit {
-      font-size: 12px;
-      color: var(--accent-dk);
-      margin-left: 2px;
-    }
-    .stat-label {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: var(--text-soft);
-      margin-top: 6px;
-    }
-
-    /* ─── Services ────────────────────────────────────────────── */
-    #services { background: var(--surface); }
-
-    .services-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 72px;
-    }
-
-    .service-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    .service-card {
-      background: var(--bg);
-      padding: 48px 36px;
-      transition: background var(--trans);
-    }
-    .service-card:hover { background: var(--white); }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 32px;
-    }
-    .service-icon svg {
-      width: 44px;
-      height: 44px;
-      stroke: var(--accent-dk);
-      fill: none;
-      stroke-width: 1;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .service-card:hover .service-icon svg { stroke: var(--text); }
-
-    .service-title {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: 18px;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .service-en {
-      font-size: 9px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      margin-bottom: 20px;
-      display: block;
-    }
-    .service-desc {
-      font-size: 13px;
-      line-height: 1.95;
-      color: var(--text-soft);
-    }
-
-    /* ─── Portfolio ───────────────────────────────────────────── */
-    #portfolio { background: var(--bg); }
-
-    .portfolio-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 56px;
-    }
-    .link-more {
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: color var(--trans);
-    }
-    .link-more svg { transition: transform var(--trans); }
-    .link-more:hover { color: var(--text); }
-    .link-more:hover svg { transform: translateX(4px); }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .portfolio-item {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .portfolio-item.tall {
-      grid-row: span 2;
-    }
-    .portfolio-thumb {
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      position: relative;
-      overflow: hidden;
-    }
-    .portfolio-item.tall .portfolio-thumb { min-height: 580px; }
-
-    /* Placeholder palette for portfolio images */
-    .p1 .portfolio-thumb { background: linear-gradient(145deg, #D8D4CE, #C6C2BB); }
-    .p2 .portfolio-thumb { background: linear-gradient(145deg, #CECBC3, #BBBAB3); }
-    .p3 .portfolio-thumb { background: linear-gradient(145deg, #E0DDD6, #D0CDC6); }
-    .p4 .portfolio-thumb { background: linear-gradient(145deg, #C8C5BF, #B8B5AE); }
-    .p5 .portfolio-thumb { background: linear-gradient(145deg, #D4D1CB, #C2BFB9); }
-    .p6 .portfolio-thumb { background: linear-gradient(145deg, #DEDAD4, #CCCAC3); }
-
-    /* Room silhouette overlay */
-    .portfolio-thumb::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 55%;
-      background: rgba(255,255,255,0.08);
-      clip-path: polygon(15% 100%, 15% 30%, 50% 0%, 85% 30%, 85% 100%);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(44,44,44,0);
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
-      transition: background var(--trans);
-    }
-    .portfolio-item:hover .portfolio-overlay {
-      background: rgba(44,44,44,0.55);
-    }
-    .portfolio-info {
-      transform: translateY(12px);
-      opacity: 0;
-      transition: transform var(--trans), opacity var(--trans);
-    }
-    .portfolio-item:hover .portfolio-info {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .portfolio-info h3 {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: 16px;
-      letter-spacing: 0.06em;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-    .portfolio-info p {
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* filter tabs */
-    .portfolio-filter {
-      display: flex;
-      gap: 0;
-      margin-bottom: 48px;
-      border-bottom: 1px solid var(--accent);
-    }
-    .filter-tab {
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      padding: 10px 20px;
-      cursor: pointer;
-      border-bottom: 1px solid transparent;
-      margin-bottom: -1px;
-      transition: color var(--trans), border-color var(--trans);
-    }
-    .filter-tab:hover, .filter-tab.active {
-      color: var(--text);
-      border-color: var(--text);
-    }
-
-    /* ─── Press / Awards ─────────────────────────────────────── */
-    #press { background: var(--surface); padding: 80px 0; }
-
-    .press-label {
-      font-size: 9px;
-      letter-spacing: 0.38em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .press-logos {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-    }
-    .press-item {
-      padding: 20px 36px;
-      border-right: 1px solid var(--accent);
-      text-align: center;
-    }
-    .press-item:first-child { border-left: 1px solid var(--accent); }
-    .press-name {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      color: var(--accent-dk);
-      white-space: nowrap;
-    }
-    .press-sub {
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-top: 3px;
-    }
-
-    /* ─── Contact ─────────────────────────────────────────────── */
-    #contact { background: var(--bg); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .contact-info { padding-top: 8px; }
-    .contact-info p {
-      font-size: 13px;
-      line-height: 2;
-      color: var(--text-soft);
-      margin-bottom: 40px;
-    }
-
-    .contact-details { display: flex; flex-direction: column; gap: 20px; }
-    .contact-detail {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    .detail-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .detail-icon svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--accent-dk);
-      fill: none;
-      stroke-width: 1.2;
-      stroke-linecap: round;
-    }
-    .detail-text .label {
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-      margin-bottom: 3px;
-    }
-    .detail-text .value {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* Form */
-    .contact-form { display: flex; flex-direction: column; gap: 20px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    .form-group label {
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent-dk);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: var(--surface);
-      border: 1px solid var(--surface);
-      border-bottom-color: var(--accent);
-      padding: 12px 16px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text);
-      outline: none;
-      border-radius: 0;
-      transition: border-color var(--trans), background var(--trans);
-      -webkit-appearance: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      background: var(--white);
-      border-color: var(--accent);
-      border-bottom-color: var(--text);
-    }
-    .form-group textarea {
-      resize: none;
-      height: 120px;
-    }
-    .form-group select {
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: var(--text);
-      color: var(--bg);
-      border: 1px solid var(--text);
-      padding: 16px 36px;
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background var(--trans), color var(--trans);
-      align-self: flex-start;
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--text);
-    }
-    .btn-primary svg { transition: transform var(--trans); }
-    .btn-primary:hover svg { transform: translateX(4px); }
-
-    /* ─── Footer ──────────────────────────────────────────────── */
-    footer {
-      background: var(--text);
-      color: rgba(245,245,240,0.55);
-      padding: 56px 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .footer-brand .zh {
-      font-family: var(--font-head);
-      font-weight: 300;
-      font-size: 17px;
-      letter-spacing: 0.12em;
-      color: rgba(245,245,240,0.9);
-    }
-    .footer-brand .en {
-      font-size: 9px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: rgba(245,245,240,0.35);
-      margin-top: 4px;
-    }
-    .footer-copy {
-      font-size: 10px;
-      letter-spacing: 0.15em;
-    }
-    .footer-links {
-      display: flex;
-      gap: 28px;
-    }
-    .footer-links a {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(245,245,240,0.45);
-      transition: color var(--trans);
-    }
-    .footer-links a:hover { color: rgba(245,245,240,0.9); }
-
-    /* ─── Scroll Reveal ───────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── Responsive ──────────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .container { padding: 0 36px; }
-      .about-grid { gap: 48px; }
-      .service-cards { grid-template-columns: 1fr 1fr; }
-      .service-card:last-child { grid-column: span 2; }
-    }
-
-    @media (max-width: 768px) {
-      :root { --nav-h: 56px; }
-
-      .container { padding: 0 24px; }
-      section { padding: 80px 0; }
-
-      /* nav */
-      .nav-links { display: none; }
-      .nav-toggle { display: flex; }
-
-      /* hero */
-      .hero-content { padding: 0 24px 64px; }
-      .hero-kanji { font-size: clamp(120px, 35vw, 200px); right: -4%; }
-      .hero-scroll { right: 24px; }
-
-      /* about */
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .about-visual { order: -1; }
-      .about-accent-block { display: none; }
-      .about-stats { gap: 24px; }
-
-      /* services */
-      .services-head { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .service-cards { grid-template-columns: 1fr; }
-      .service-card:last-child { grid-column: auto; }
-
-      /* portfolio */
-      .portfolio-head { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .portfolio-grid { grid-template-columns: 1fr 1fr; }
-      .portfolio-item.tall { grid-row: auto; }
-      .portfolio-item.tall .portfolio-thumb { min-height: 280px; }
-
-      /* press */
-      .press-item { padding: 16px 20px; }
-      .press-item:first-child { border-left: none; }
-
-      /* contact */
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-
-      /* footer */
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-    }
-
-    @media (max-width: 480px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-thumb { min-height: 240px !important; }
-      .portfolio-filter { overflow-x: auto; }
-      .filter-tab { white-space: nowrap; }
-      .press-logos { flex-direction: column; }
-      .press-item { border-right: none; border-bottom: 1px solid var(--accent); width: 100%; }
-      .press-item:first-child { border-left: none; }
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .container{padding:0 36px;}
+      .about-grid{gap:48px;}
+      .service-cards{grid-template-columns:1fr 1fr;}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:768px){
+      :root{--nav-h:56px;}
+      .container{padding:0 24px;}
+      section{padding:80px 0;}
+      .nav-links{display:none;}
+      .nav-toggle{display:flex;}
+      .hero-content{padding:0 24px 64px;}
+      .hero-kanji{display:none;}
+      .hero-scroll{right:24px;}
+      .about-grid{grid-template-columns:1fr;}
+      .about-visual{order:-1;}
+      .about-accent-block{display:none;}
+      .about-stats{gap:24px;}
+      .services-head{margin-bottom:40px;}
+      .service-cards{grid-template-columns:1fr;}
+      .portfolio-head{flex-direction:column;align-items:flex-start;gap:16px;}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+      .contact-grid{grid-template-columns:1fr;gap:48px;}
+      .form-row{grid-template-columns:1fr;}
+      .footer-inner{flex-direction:column;text-align:center;}
+      .footer-links{flex-wrap:wrap;justify-content:center;}
+      .lb-thumbs{display:none;}
+      .lb-btn{width:36px;height:36px;}
+    }
+    @media(max-width:480px){
+      .portfolio-grid{grid-template-columns:1fr;}
+      .press-item:first-child{border-left:none;}
+      .press-item{border-right:none;border-bottom:1px solid var(--accent);width:100%;}
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ══════ NAV ══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#hero" class="nav-logo">
-          <span class="zh">山木生設計</span>
-          <span class="en">SMS Interior Design</span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#about">關於</a></li>
-          <li><a href="#services">服務</a></li>
-          <li><a href="#portfolio">作品集</a></li>
-          <li><a href="#contact">聯絡</a></li>
-        </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="選單">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-    <div class="nav-drawer" id="navDrawer">
-      <a href="#about"     onclick="closeDrawer()">關於我們</a>
-      <a href="#services"  onclick="closeDrawer()">服務項目</a>
-      <a href="#portfolio" onclick="closeDrawer()">作品集</a>
-      <a href="#contact"   onclick="closeDrawer()">聯絡我們</a>
-    </div>
-  </nav>
-
-  <!-- ══════ HERO ═════════════════════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-kanji">生</div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">SMS Interior Design &nbsp;·&nbsp; Since 2008</p>
-      <h1 class="hero-title">
-        以靜謐之美<br>重塑居所本質
-        <em>Quiet Spaces, Human Stories</em>
-      </h1>
-      <p class="hero-desc">
-        山木生設計相信，真正的好設計不在於繁複的裝飾，<br>
-        而在於對生活本質的深刻理解，以空間語言<br>
-        道出每個家庭的獨特故事。
-      </p>
-      <a href="#portfolio" class="btn-outline">
-        探索作品
-        <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-          <path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ══════ ABOUT ════════════════════════════════════════════ -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p class="section-label">About Us</p>
-          <h2 class="section-title">
-            我們的設計哲學
-            <span>Design Philosophy</span>
-          </h2>
-          <div class="divider"></div>
-          <p>
-            山木生，取自自然生長之意。<strong>山</strong>代表穩重與靜謐，<strong>木</strong>象徵溫潤與有機，<strong>生</strong>則是空間與人的共同呼吸。
-          </p>
-          <p>
-            我們師法日本設計大師 Oki Sato 所倡導的「小聰明」美學——在簡約中找到巧妙，在剋制裡創造豐盈。每一個設計決策都經過深思，每一件傢具的擺放都有其道理。
-          </p>
-          <p>
-            超過十五年來，我們服務逾三百個家庭，從台北精品公寓到宜蘭老屋改建，始終堅持：<strong>空間是生活的容器，設計是給生活最溫柔的禮物。</strong>
-          </p>
-          <div class="about-stats">
-            <div class="stat-item">
-              <div class="stat-num">300<span class="stat-unit">+</span></div>
-              <div class="stat-label">完成案例</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num">15<span class="stat-unit">年</span></div>
-              <div class="stat-label">設計經驗</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num">20<span class="stat-unit">+</span></div>
-              <div class="stat-label">媒體刊登</div>
-            </div>
-          </div>
-        </div>
-        <div class="about-visual reveal">
-          <div class="about-img-wrap"></div>
-          <div class="about-accent-block"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ SERVICES ══════════════════════════════════════════ -->
-  <section id="services">
-    <div class="container">
-      <div class="services-head reveal">
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="images/logo.jpg" alt="山木生設計" onerror="this.style.display='none'">
         <div>
-          <p class="section-label">Services</p>
-          <h2 class="section-title">
-            服務項目
-            <span>What We Offer</span>
-          </h2>
-        </div>
-      </div>
-      <div class="service-cards">
-        <!-- Card 1 -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 44 44">
-              <rect x="6" y="8" width="32" height="28" rx="1"/>
-              <line x1="6" y1="16" x2="38" y2="16"/>
-              <line x1="18" y1="16" x2="18" y2="36"/>
-              <line x1="12" y1="22" x2="16" y2="22"/>
-              <line x1="12" y1="27" x2="16" y2="27"/>
-              <line x1="22" y1="22" x2="35" y2="22"/>
-              <line x1="22" y1="27" x2="35" y2="27"/>
-              <line x1="22" y1="32" x2="35" y2="32"/>
-            </svg>
-          </div>
-          <div class="service-title">住宅空間設計</div>
-          <span class="service-en">Residential Design</span>
-          <p class="service-desc">
-            從格局規劃到材料選用，全程陪伴您打造理想居所。以人為本的設計思維，讓空間符合您的生活節奏與家庭溫度。
-          </p>
-        </div>
-        <!-- Card 2 -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 44 44">
-              <path d="M8 36 L8 14 L22 6 L36 14 L36 36 Z"/>
-              <rect x="17" y="24" width="10" height="12"/>
-              <rect x="12" y="18" width="8" height="8"/>
-              <rect x="24" y="18" width="8" height="8"/>
-            </svg>
-          </div>
-          <div class="service-title">商業空間規劃</div>
-          <span class="service-en">Commercial Space</span>
-          <p class="service-desc">
-            餐飲、辦公、零售等商業場域，以品牌精神為核心，設計出具有市場競爭力、能與客戶產生共鳴的空間體驗。
-          </p>
-        </div>
-        <!-- Card 3 -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 44 44">
-              <rect x="8" y="10" width="28" height="24" rx="1"/>
-              <line x1="8" y1="18" x2="36" y2="18"/>
-              <line x1="22" y1="10" x2="22" y2="34"/>
-              <circle cx="15" cy="14" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="22" cy="14" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="29" cy="14" r="1.5" fill="currentColor" stroke="none"/>
-              <line x1="12" y1="24" x2="19" y2="24"/>
-              <line x1="12" y1="28" x2="19" y2="28"/>
-              <line x1="26" y1="24" x2="33" y2="24"/>
-              <line x1="26" y1="28" x2="33" y2="28"/>
-            </svg>
-          </div>
-          <div class="service-title">軟裝陳設顧問</div>
-          <span class="service-en">Interior Styling</span>
-          <p class="service-desc">
-            傢具選配、燈光計畫、藝術品陳設，以細膩的感知力為空間注入溫度，讓每個角落都有值得停留的理由。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ PORTFOLIO ═════════════════════════════════════════ -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="portfolio-head reveal">
-        <div>
-          <p class="section-label">Portfolio</p>
-          <h2 class="section-title">
-            精選作品
-            <span>Selected Works</span>
-          </h2>
-        </div>
-        <a href="#portfolio" class="link-more">
-          查看全部作品
-          <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-            <path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="portfolio-filter reveal">
-        <span class="filter-tab active" onclick="filterPortfolio(this,'all')">全部</span>
-        <span class="filter-tab" onclick="filterPortfolio(this,'residential')">住宅</span>
-        <span class="filter-tab" onclick="filterPortfolio(this,'commercial')">商業</span>
-        <span class="filter-tab" onclick="filterPortfolio(this,'styling')">軟裝陳設</span>
-      </div>
-      <div class="portfolio-grid" id="portfolioGrid">
-        <div class="portfolio-item tall p1" data-type="residential">
-          <div class="portfolio-thumb"></div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h3>靜謐森居</h3>
-              <p>住宅 &nbsp;·&nbsp; 台北大安 &nbsp;·&nbsp; 42坪</p>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item p2" data-type="commercial">
-          <div class="portfolio-thumb"></div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h3>沐光茶室</h3>
-              <p>商業 &nbsp;·&nbsp; 台北信義 &nbsp;·&nbsp; 28坪</p>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item p3" data-type="styling">
-          <div class="portfolio-thumb"></div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h3>木質輕居</h3>
-              <p>軟裝陳設 &nbsp;·&nbsp; 台北松山 &nbsp;·&nbsp; 30坪</p>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item p4" data-type="residential">
-          <div class="portfolio-thumb"></div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h3>白日夢境</h3>
-              <p>住宅 &nbsp;·&nbsp; 新北淡水 &nbsp;·&nbsp; 35坪</p>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item tall p5" data-type="residential">
-          <div class="portfolio-thumb"></div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h3>無界明室</h3>
-              <p>住宅 &nbsp;·&nbsp; 台中西區 &nbsp;·&nbsp; 60坪</p>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item p6" data-type="commercial">
-          <div class="portfolio-thumb"></div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h3>暖木咖啡</h3>
-              <p>商業 &nbsp;·&nbsp; 台北中山 &nbsp;·&nbsp; 20坪</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ PRESS ═════════════════════════════════════════════ -->
-  <section id="press">
-    <div class="container">
-      <p class="press-label">Media Coverage &nbsp;·&nbsp; 媒體報導</p>
-      <div class="press-logos">
-        <div class="press-item">
-          <div class="press-name">漂亮家居</div>
-          <div class="press-sub">MyHome</div>
-        </div>
-        <div class="press-item">
-          <div class="press-name">美化家庭</div>
-          <div class="press-sub">Better Home</div>
-        </div>
-        <div class="press-item">
-          <div class="press-name">傢飾雜誌</div>
-          <div class="press-sub">CN Interior</div>
-        </div>
-        <div class="press-item">
-          <div class="press-name">室內雜誌</div>
-          <div class="press-sub">Interior</div>
-        </div>
-        <div class="press-item">
-          <div class="press-name">ArchDaily</div>
-          <div class="press-sub">Architecture</div>
-        </div>
-        <div class="press-item">
-          <div class="press-name">經濟日報</div>
-          <div class="press-sub">HKEJ</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ CONTACT ═══════════════════════════════════════════ -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <p class="section-label">Contact</p>
-          <h2 class="section-title">
-            開始您的<br>設計旅程
-            <span>Let's Create Together</span>
-          </h2>
-          <div class="divider"></div>
-          <p>
-            每一個空間都有屬於它的最佳樣貌，<br>
-            讓我們一起找到它。歡迎預約免費諮詢，<br>
-            告訴我們您的故事。
-          </p>
-          <div class="contact-details">
-            <div class="contact-detail">
-              <div class="detail-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"/>
-                  <circle cx="12" cy="9" r="2.5"/>
-                </svg>
-              </div>
-              <div class="detail-text">
-                <div class="label">Studio</div>
-                <div class="value">台北市大安區安和路一段<br>XX號 X樓</div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="detail-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-              </div>
-              <div class="detail-text">
-                <div class="label">Phone</div>
-                <div class="value">02-2700-XXXX</div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="detail-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div class="detail-text">
-                <div class="label">Email</div>
-                <div class="value">info@sms-interior.com</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="reveal">
-          <form class="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">姓名 Name</label>
-                <input type="text" id="name" placeholder="您的姓名" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">電話 Phone</label>
-                <input type="tel" id="phone" placeholder="聯絡電話" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">電子郵件 Email</label>
-              <input type="email" id="email" placeholder="your@email.com" required />
-            </div>
-            <div class="form-group">
-              <label for="type">案件類型 Project Type</label>
-              <select id="type">
-                <option value="">請選擇案件類型</option>
-                <option value="residential">住宅空間設計</option>
-                <option value="commercial">商業空間規劃</option>
-                <option value="renovation">老屋翻新改造</option>
-                <option value="other">其他諮詢</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">需求說明 Message</label>
-              <textarea id="message" placeholder="請簡單描述您的空間需求、坪數、預算範圍等……"></textarea>
-            </div>
-            <button type="submit" class="btn-primary">
-              送出諮詢
-              <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                <path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ FOOTER ════════════════════════════════════════════ -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
           <div class="zh">山木生設計</div>
           <div class="en">SMS Interior Design</div>
         </div>
-        <nav class="footer-links">
-          <a href="#about">關於我們</a>
-          <a href="#services">服務項目</a>
-          <a href="#portfolio">作品集</a>
-          <a href="#contact">聯絡我們</a>
-          <a href="https://www.facebook.com/pages/山木生室內設計粉絲專頁/144285072302889" target="_blank">Facebook</a>
-        </nav>
-        <p class="footer-copy">© 2024 山木生設計有限公司. All rights reserved.</p>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">關於</a></li>
+        <li><a href="#services">服務</a></li>
+        <li><a href="#portfolio">作品集</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#about"     onclick="closeDrawer()">關於我們</a>
+    <a href="#services"  onclick="closeDrawer()">服務項目</a>
+    <a href="#portfolio" onclick="closeDrawer()">作品集</a>
+    <a href="#contact"   onclick="closeDrawer()">聯絡我們</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active"><img src="images/portfolio/mu_house/01b.jpg" alt="mu_house" /></div>
+    <div class="hero-slide"><img src="images/portfolio/LakeSight/01b.jpg" alt="LakeSight" /></div>
+    <div class="hero-slide"><img src="images/portfolio/hive/01b.jpg" alt="hive" /></div>
+    <div class="hero-slide"><img src="images/portfolio/ColorLine/01b.jpg" alt="ColorLine" /></div>
+    <div class="hero-slide"><img src="images/portfolio/whitehouse/01b.jpg" alt="whitehouse" /></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-kanji">生</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">SMS Interior Design &nbsp;·&nbsp; Since 2008</p>
+    <h1 class="hero-title">
+      以靜謐之美<br>重塑居所本質
+      <em>Quiet Spaces, Human Stories</em>
+    </h1>
+    <p class="hero-desc">山木生設計相信，真正的好設計不在於繁複的裝飾，而在於對生活本質的深刻理解，以空間語言道出每個家庭的獨特故事。</p>
+    <a href="#portfolio" class="btn-outline">
+      探索作品
+      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">我們的設計哲學<span>Design Philosophy</span></h2>
+        <div class="divider"></div>
+        <p>山木生，取自自然生長之意。<strong>山</strong>代表穩重與靜謐，<strong>木</strong>象徵溫潤與有機，<strong>生</strong>則是空間與人的共同呼吸。</p>
+        <p>我們在簡約中找到巧妙，在剋制裡創造豐盈。每一個設計決策都經過深思，每一件傢具的擺放都有其道理。</p>
+        <p>超過十五年來，我們服務逾三百個家庭，始終堅持：<strong>空間是生活的容器，設計是給生活最溫柔的禮物。</strong></p>
+        <div class="about-stats">
+          <div class="stat-item"><div class="stat-num">300<span class="stat-unit">+</span></div><div class="stat-label">完成案例</div></div>
+          <div class="stat-item"><div class="stat-num">15<span class="stat-unit">年</span></div><div class="stat-label">設計經驗</div></div>
+          <div class="stat-item"><div class="stat-num">20<span class="stat-unit">+</span></div><div class="stat-label">媒體刊登</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <img src="images/portfolio/purr/01b.jpg" alt="山木生設計作品" />
+        </div>
+        <div class="about-accent-block"></div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- ══════ SCRIPTS ════════════════════════════════════════════ -->
-  <script>
-    /* ── Nav scroll effect ── */
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-head reveal">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">服務項目<span>What We Offer</span></h2>
+    </div>
+    <div class="service-cards">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="1"/><line x1="6" y1="16" x2="38" y2="16"/><line x1="18" y1="16" x2="18" y2="36"/><line x1="12" y1="22" x2="16" y2="22"/><line x1="12" y1="27" x2="16" y2="27"/><line x1="22" y1="22" x2="35" y2="22"/><line x1="22" y1="27" x2="35" y2="27"/><line x1="22" y1="32" x2="35" y2="32"/></svg></div>
+        <div class="service-title">住宅空間設計</div>
+        <span class="service-en">Residential Design</span>
+        <p class="service-desc">從格局規劃到材料選用，全程陪伴您打造理想居所。以人為本的設計思維，讓空間符合您的生活節奏與家庭溫度。</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 44 44"><path d="M8 36 L8 14 L22 6 L36 14 L36 36 Z"/><rect x="17" y="24" width="10" height="12"/><rect x="12" y="18" width="8" height="8"/><rect x="24" y="18" width="8" height="8"/></svg></div>
+        <div class="service-title">商業空間規劃</div>
+        <span class="service-en">Commercial Space</span>
+        <p class="service-desc">餐飲、辦公、零售等商業場域，以品牌精神為核心，設計出具有市場競爭力、能與客戶產生共鳴的空間體驗。</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="1"/><line x1="8" y1="18" x2="36" y2="18"/><line x1="22" y1="10" x2="22" y2="34"/><line x1="12" y1="24" x2="19" y2="24"/><line x1="12" y1="28" x2="19" y2="28"/><line x1="26" y1="24" x2="33" y2="24"/><line x1="26" y1="28" x2="33" y2="28"/></svg></div>
+        <div class="service-title">軟裝陳設顧問</div>
+        <span class="service-en">Interior Styling</span>
+        <p class="service-desc">傢具選配、燈光計畫、藝術品陳設，以細膩的感知力為空間注入溫度，讓每個角落都有值得停留的理由。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    /* ── Mobile drawer ── */
-    const toggle = document.getElementById('navToggle');
-    const drawer = document.getElementById('navDrawer');
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="portfolio-head reveal">
+      <div>
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">精選作品<span>Selected Works</span></h2>
+      </div>
+    </div>
+    <div class="portfolio-filter reveal">
+      <span class="filter-tab active" onclick="filterPortfolio(this,'all')">全部</span>
+      <span class="filter-tab" onclick="filterPortfolio(this,'residential')">住宅</span>
+      <span class="filter-tab" onclick="filterPortfolio(this,'commercial')">商業</span>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+  </div>
+</section>
 
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      drawer.classList.toggle('open');
-    });
+<!-- PRESS -->
+<section id="press">
+  <div class="container">
+    <p class="press-label">Media Coverage &nbsp;·&nbsp; 媒體報導</p>
+    <div class="press-logos">
+      <div class="press-item"><div class="press-name">漂亮家居</div><div class="press-sub">MyHome</div></div>
+      <div class="press-item"><div class="press-name">美化家庭</div><div class="press-sub">Better Home</div></div>
+      <div class="press-item"><div class="press-name">傢飾雜誌</div><div class="press-sub">CN Interior</div></div>
+      <div class="press-item"><div class="press-name">室內雜誌</div><div class="press-sub">Interior</div></div>
+      <div class="press-item"><div class="press-name">ArchDaily</div><div class="press-sub">Architecture</div></div>
+      <div class="press-item"><div class="press-name">經濟日報</div><div class="press-sub">HKEJ</div></div>
+    </div>
+  </div>
+</section>
 
-    function closeDrawer() {
-      toggle.classList.remove('open');
-      drawer.classList.remove('open');
-    }
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">開始您的<br>設計旅程<span>Let's Create Together</span></h2>
+        <div class="divider"></div>
+        <p>每一個空間都有屬於它的最佳樣貌，<br>讓我們一起找到它。歡迎預約免費諮詢。</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div class="detail-text"><div class="label">Studio</div><div class="value">新北市新店區僑信路111號</div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="detail-text"><div class="label">Phone</div><div class="value">02-2214-0908</div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="detail-text"><div class="label">Email</div><div class="value">info@sms-interior.com</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>姓名 Name</label><input type="text" placeholder="您的姓名" required /></div>
+            <div class="form-group"><label>電話 Phone</label><input type="tel" placeholder="聯絡電話" /></div>
+          </div>
+          <div class="form-group"><label>電子郵件 Email</label><input type="email" placeholder="your@email.com" required /></div>
+          <div class="form-group">
+            <label>案件類型</label>
+            <select><option value="">請選擇</option><option>住宅空間設計</option><option>商業空間規劃</option><option>軟裝陳設顧問</option><option>其他諮詢</option></select>
+          </div>
+          <div class="form-group"><label>需求說明</label><textarea placeholder="請簡單描述您的空間需求、坪數、預算範圍……"></textarea></div>
+          <button type="submit" class="btn-primary">送出諮詢 <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-    /* ── Scroll reveal ── */
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          // slight stagger for sibling items
-          const siblings = [...entry.target.parentElement.children].filter(c => c.classList.contains('reveal'));
-          const idx = siblings.indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, idx * 80);
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="zh">山木生設計</div><div class="en">SMS Interior Design</div></div>
+      <nav class="footer-links">
+        <a href="#about">關於</a><a href="#services">服務</a><a href="#portfolio">作品集</a><a href="#contact">聯絡</a>
+        <a href="https://www.facebook.com/pages/山木生室內設計粉絲專頁/144285072302889" target="_blank">Facebook</a>
+      </nav>
+      <p class="footer-copy">© 2024 山木生設計有限公司. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
-    reveals.forEach(el => revealObserver.observe(el));
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div class="lb-header">
+    <div class="lb-title" id="lbTitle"></div>
+    <div class="lb-counter" id="lbCounter"></div>
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+  </div>
+  <div class="lb-main">
+    <button class="lb-btn lb-prev" onclick="lbNavigate(-1)">&#8249;</button>
+    <div class="lb-img-wrap"><img id="lbImg" src="" alt="" /></div>
+    <button class="lb-btn lb-next" onclick="lbNavigate(1)">&#8250;</button>
+  </div>
+  <div class="lb-thumbs" id="lbThumbs"></div>
+</div>
 
-    /* ── Portfolio filter ── */
-    function filterPortfolio(tab, type) {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+<script>
+// ── Portfolio data ──────────────────────────────────────────────
+const PROJECTS = [
+  { id:'mu_house',          zh:'木屋',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','06b.jpg','07b.jpg','08.jpg','10.jpg','11b.jpg','12.jpg','13b.jpg','14b.jpg','15b.jpg'], tall:true },
+  { id:'LakeSight',         zh:'湖景宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','04b.jpg','05b.jpg','06b.jpg','07b.jpg','10b.jpg','11b.jpg','15b.jpg','16b.jpg','18b.jpg','20b.jpg','22b.jpg','25b.jpg','27b.jpg'] },
+  { id:'purr',              zh:'Purr 寵物空間', en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','03b.jpg','05b.jpg','06b.jpg'] },
+  { id:'hive',              zh:'蜂巢宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','04b.jpg','05b.jpg','07b.jpg','11b.jpg','12.jpg','13b.jpg','15b.jpg','16b.jpg','17b.jpg','20b.jpg','22b.jpg'] },
+  { id:'ColorLine',         zh:'彩線居',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','07b.jpg','16b.jpg','19b.jpg'] },
+  { id:'whitehouse',        zh:'白宅',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','06.jpg','07.jpg','08b.jpg','09b.jpg'], tall:true },
+  { id:'a_community',       zh:'社區公共空間',  en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','05b.jpg','06b.jpg','07b.jpg','09b.jpg','12b.jpg','13b.jpg','15.jpg'] },
+  { id:'DineIn',            zh:'饗食空間',      en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','04b.jpg','10b.jpg','13b.jpg','14b.jpg'] },
+  { id:'MusicHouse',        zh:'音樂屋',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','07b.jpg','08b.jpg','09b.jpg','10b.jpg','11b.jpg','12b.jpg','13b.jpg','16b.jpg','17b.jpg'] },
+  { id:'Cloud',             zh:'雲宅',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','07b.jpg','11b.jpg','12b.jpg','14b.jpg','15b.jpg'] },
+  { id:'mountain',          zh:'山居',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','04b.jpg','04b.jpg','05.jpg','06b.jpg','07b.jpg','09b.jpg'] },
+  { id:'houseSue',          zh:'Sue 宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','07b.jpg','11b.jpg','13b.jpg','14b.jpg'], tall:true },
+  { id:'thecave',           zh:'洞穴宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','05b.jpg','06b.jpg','07b.jpg','10b.jpg','11b.jpg','12b.jpg'] },
+  { id:'hotel',             zh:'精品旅館',      en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','05b.jpg','06b.jpg','09b.jpg','10b.jpg'] },
+  { id:'HouseF',            zh:'F 宅',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','06b.jpg','07.jpg','13b.jpg','14b.jpg','16b.jpg'] },
+  { id:'pathways',          zh:'徑',            en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','05b.jpg','08b.jpg','09b.jpg','11b.jpg','13b.jpg'] },
+  { id:'Jonny_ukulele',     zh:'烏克麗麗工作室',en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','03b.jpg','04b.jpg','05b.jpg','06.jpg','07b.jpg'] },
+  { id:'legocity',          zh:'樂高城',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','04b.jpg','06b.jpg','08b.jpg','10.jpg'] },
+  { id:'PetHotel',          zh:'寵物旅館',      en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','09b.jpg'] },
+  { id:'magic_rock',        zh:'魔岩宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','04.jpg','05b.jpg'] },
+  { id:'present',           zh:'禮物宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','03b.jpg','04.jpg'] },
+  { id:'hut_in_the_secular',zh:'塵世中的小屋', en:'Residential · 住宅',  type:'residential', photos:['01b.jpg'] },
+];
 
-      document.querySelectorAll('.portfolio-item').forEach(item => {
-        const match = type === 'all' || item.dataset.type === type;
-        item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        if (match) {
-          item.style.opacity = '1';
-          item.style.transform = 'scale(1)';
-          item.style.display = '';
-        } else {
-          item.style.opacity = '0';
-          item.style.transform = 'scale(0.96)';
-          setTimeout(() => { if (item.style.opacity === '0') item.style.display = 'none'; }, 400);
-        }
-      });
-    }
+// ── Build portfolio grid ────────────────────────────────────────
+const grid = document.getElementById('portfolioGrid');
+PROJECTS.forEach((p, i) => {
+  const item = document.createElement('div');
+  item.className = 'portfolio-item reveal' + (p.tall ? ' tall' : '');
+  item.dataset.type = p.type;
+  item.innerHTML = `
+    <div class="portfolio-thumb">
+      <img src="images/portfolio/${p.id}/01b.jpg" alt="${p.zh}" loading="lazy" />
+    </div>
+    <div class="portfolio-overlay">
+      <div class="portfolio-info">
+        <h3>${p.zh}</h3>
+        <p>${p.en}</p>
+      </div>
+    </div>`;
+  item.addEventListener('click', () => openLightbox(i));
+  grid.appendChild(item);
+});
 
-    /* ── Contact form ── */
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.btn-primary');
-      const original = btn.innerHTML;
-      btn.innerHTML = '已送出 ✓';
-      btn.style.background = 'var(--accent-dk)';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = original;
-        btn.style.background = '';
-        btn.disabled = false;
-        e.target.reset();
-      }, 3000);
-    }
+// ── Filter ──────────────────────────────────────────────────────
+function filterPortfolio(tab, type) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    const show = type === 'all' || item.dataset.type === type;
+    item.classList.toggle('hidden', !show);
+  });
+}
 
-    /* ── Smooth anchor offset (nav height) ── */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
-        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 64;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      });
-    });
-  </script>
+// ── Lightbox ────────────────────────────────────────────────────
+let lbProject = null, lbIndex = 0;
+const lbEl    = document.getElementById('lightbox');
+const lbImg   = document.getElementById('lbImg');
+const lbTitle = document.getElementById('lbTitle');
+const lbCtr   = document.getElementById('lbCounter');
+const lbThumbs= document.getElementById('lbThumbs');
+
+function openLightbox(projectIndex) {
+  lbProject = PROJECTS[projectIndex];
+  lbIndex = 0;
+  lbEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderLbThumbs();
+  showLbPhoto(0);
+}
+
+function renderLbThumbs() {
+  lbThumbs.innerHTML = '';
+  lbProject.photos.forEach((ph, i) => {
+    const t = document.createElement('div');
+    t.className = 'lb-thumb' + (i === 0 ? ' active' : '');
+    t.innerHTML = `<img src="images/portfolio/${lbProject.id}/${ph}" loading="lazy" />`;
+    t.addEventListener('click', () => showLbPhoto(i));
+    lbThumbs.appendChild(t);
+  });
+}
+
+function showLbPhoto(i) {
+  const photos = lbProject.photos;
+  lbIndex = (i + photos.length) % photos.length;
+  lbImg.src = `images/portfolio/${lbProject.id}/${photos[lbIndex]}`;
+  lbTitle.textContent = lbProject.zh;
+  lbCtr.textContent = `${lbIndex + 1} / ${photos.length}`;
+  document.querySelectorAll('.lb-thumb').forEach((t, ti) => t.classList.toggle('active', ti === lbIndex));
+  // Scroll active thumb into view
+  const active = lbThumbs.children[lbIndex];
+  if (active) active.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+}
+
+function lbNavigate(dir) { showLbPhoto(lbIndex + dir); }
+
+function closeLightbox() {
+  lbEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (!lbEl.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') lbNavigate(1);
+  if (e.key === 'ArrowLeft')  lbNavigate(-1);
+});
+
+// Touch swipe on lightbox
+let touchStartX = 0;
+lbEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+lbEl.addEventListener('touchend',   e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) lbNavigate(dx < 0 ? 1 : -1);
+}, {passive:true});
+
+// ── Hero slideshow ──────────────────────────────────────────────
+const slides = document.querySelectorAll('.hero-slide');
+let current = 0;
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 5000);
+
+// ── Nav ─────────────────────────────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+const toggle = document.getElementById('navToggle');
+const drawer = document.getElementById('navDrawer');
+toggle.addEventListener('click', () => { toggle.classList.toggle('open'); drawer.classList.toggle('open'); });
+function closeDrawer() { toggle.classList.remove('open'); drawer.classList.remove('open'); }
+
+// ── Scroll reveal ───────────────────────────────────────────────
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const siblings = [...entry.target.parentElement.children].filter(c => c.classList.contains('reveal'));
+    const idx = siblings.indexOf(entry.target);
+    setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+    revealObs.unobserve(entry.target);
+  });
+}, { threshold:0.1, rootMargin:'0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── Smooth scroll ───────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    const off = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 64;
+    window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - off, behavior:'smooth' });
+  });
+});
+
+// ── Contact form ────────────────────────────────────────────────
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-primary');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '已送出 ✓';
+  btn.disabled = true;
+  setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; e.target.reset(); }, 3000);
+}
+</script>
 </body>
 </html>
