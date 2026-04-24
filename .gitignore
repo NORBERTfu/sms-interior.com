@@ -1,0 +1,5 @@
+*.tar.gz
+backup-*/
+整理/
+.DS_Store
+Thumbs.db
