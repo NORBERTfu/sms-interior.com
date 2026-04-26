@@ -80,18 +80,54 @@
     .about-text p { font-size:14px; line-height:2.1; color:var(--text-soft); margin-bottom:20px; }
     .about-text strong { font-weight:400; color:var(--text); }
     .about-visual { position:relative; }
-    .about-img-wrap { width:100%; aspect-ratio:4/5; overflow:hidden; }
-    .about-img-wrap img { width:100%; height:100%; object-fit:cover; }
+    .about-img-wrap { width:100%; aspect-ratio:4/3; overflow:hidden; }
+    .about-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:65% 50%; }
     .about-accent-block { position:absolute; bottom:-24px; right:-24px; width:140px; height:140px; background:var(--surface); border:1px solid var(--accent); z-index:-1; }
     .about-stats { display:flex; gap:40px; margin-top:48px; padding-top:40px; border-top:1px solid var(--surface); }
     .stat-num { font-family:var(--font-head); font-weight:300; font-size:36px; letter-spacing:-0.02em; color:var(--text); line-height:1; }
     .stat-unit { font-size:12px; color:var(--accent-dk); margin-left:2px; }
     .stat-label { font-size:11px; letter-spacing:0.15em; color:var(--text-soft); margin-top:6px; }
 
+    /* AWARDS */
+    .awards { margin-top:120px; padding-top:80px; border-top:1px solid var(--surface); }
+    .awards-head { display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:start; margin-bottom:64px; }
+    .awards-head .section-title { margin-top:8px; }
+    .awards-head p { font-size:14px; line-height:2.1; color:var(--text-soft); }
+    .awards-head .award-mark { font-family:var(--font-head); font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:10px; display:block; }
+    .awards-list { display:flex; flex-direction:column; }
+    .award-row { display:grid; grid-template-columns:90px 1fr 1.6fr 1fr; gap:32px; padding:24px 0; border-top:1px solid var(--surface); align-items:baseline; }
+    .award-row:last-child { border-bottom:1px solid var(--surface); }
+    .award-year { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.02em; color:var(--text); }
+    .award-prize { font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-dk); }
+    .award-prize strong { font-weight:400; color:var(--text); letter-spacing:0.06em; text-transform:none; font-size:13px; display:block; margin-top:2px; }
+    .award-project { font-family:var(--font-head); font-size:15px; letter-spacing:0.06em; color:var(--text); }
+    .award-project span { display:block; font-family:var(--font-body); font-size:10px; letter-spacing:0.22em; color:var(--text-soft); text-transform:uppercase; margin-top:3px; }
+    .award-cat { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent-dk); text-align:right; }
+    .awards-footnote { margin-top:24px; font-size:11px; line-height:1.9; color:var(--accent-dk); letter-spacing:0.04em; }
+
+    /* DESIGN LANGUAGE */
+    #language { background:var(--bg); padding:120px 0; border-top:1px solid var(--surface); }
+    .language-head { text-align:center; margin-bottom:96px; }
+    .language-head .section-label { display:block; }
+    .language-head .section-title { margin:0 auto; }
+    .language-head .lang-lead { max-width:620px; margin:32px auto 0; font-size:13.5px; line-height:2.1; color:var(--text-soft); }
+    .language-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--accent); border:1px solid var(--accent); }
+    .language-card { background:var(--bg); padding:64px 44px 56px; text-align:left; transition:background var(--trans); }
+    .language-card:hover { background:var(--white); }
+    .lang-glyph { font-family:var(--font-head); font-weight:300; font-size:64px; line-height:1; color:var(--text); margin-bottom:18px; letter-spacing:0.04em; }
+    .lang-icon { width:36px; height:36px; margin-bottom:36px; }
+    .lang-icon svg { width:36px; height:36px; stroke:var(--accent-dk); fill:none; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; }
+    .lang-title { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.08em; color:var(--text); margin-bottom:8px; }
+    .lang-en { font-size:9px; letter-spacing:0.32em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:24px; display:block; }
+    .lang-rule { width:24px; height:1px; background:var(--accent); margin-bottom:24px; }
+    .lang-desc { font-size:13px; line-height:2; color:var(--text-soft); }
+
     /* SERVICES */
     #services { background:var(--surface); }
     .services-head { margin-bottom:72px; }
-    .service-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--accent); border:1px solid var(--accent); }
+    .services-head .section-title { margin-bottom:20px; }
+    .services-lead { max-width:600px; font-size:13.5px; line-height:2.1; color:var(--text-soft); margin-top:18px; }
+    .service-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--accent); border:1px solid var(--accent); }
     .service-card { background:var(--bg); padding:48px 36px; transition:background var(--trans); }
     .service-card:hover { background:var(--white); }
     .service-icon { width:44px; height:44px; margin-bottom:32px; }
@@ -112,9 +148,8 @@
     .filter-tab { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-soft); padding:10px 20px; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; white-space:nowrap; transition:color var(--trans),border-color var(--trans); }
     .filter-tab:hover, .filter-tab.active { color:var(--text); border-color:var(--text); }
 
-    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-    .portfolio-item { position:relative; overflow:hidden; cursor:pointer; aspect-ratio:4/3; }
-    .portfolio-item.tall { aspect-ratio:3/4; }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--accent); }
+    .portfolio-item { position:relative; overflow:hidden; cursor:pointer; aspect-ratio:4/3; background:var(--bg); }
     .portfolio-thumb { width:100%; height:100%; }
     .portfolio-thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
     .portfolio-item:hover .portfolio-thumb img { transform:scale(1.04); }
@@ -134,7 +169,22 @@
     .lb-counter { font-size:11px; letter-spacing:0.2em; color:rgba(255,255,255,0.45); }
     .lb-close { width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(255,255,255,0.6); transition:color var(--trans); font-size:22px; background:none; border:none; }
     .lb-close:hover { color:var(--white); }
+    .lb-info-toggle { display:none; width:40px; height:40px; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:rgba(255,255,255,0.6); margin-left:auto; transition:color var(--trans); }
+    .lb-info-toggle:hover { color:var(--white); }
+    .lb-body { flex:1; display:flex; min-height:0; }
     .lb-main { flex:1; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .lb-info { width:340px; flex-shrink:0; border-left:1px solid rgba(255,255,255,0.08); overflow-y:auto; background:rgba(0,0,0,0.25); }
+    .lb-info-inner { padding:88px 36px 40px; }
+    .lb-info-cat { font-size:9px; letter-spacing:0.36em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:18px; }
+    .lb-info-zh { font-family:var(--font-head); font-weight:300; font-size:26px; letter-spacing:0.08em; color:rgba(255,255,255,0.92); line-height:1.3; margin-bottom:6px; }
+    .lb-info-en { font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+    .lb-info-rule { width:32px; height:1px; background:rgba(255,255,255,0.25); margin:28px 0; }
+    .lb-info-tag { font-family:var(--font-head); font-weight:300; font-size:14px; letter-spacing:0.06em; line-height:1.6; color:rgba(255,255,255,0.78); margin-bottom:20px; }
+    .lb-info-desc { font-size:12.5px; line-height:2; color:rgba(255,255,255,0.62); font-weight:300; margin-bottom:36px; text-align:justify; }
+    .lb-info-meta { display:flex; flex-direction:column; gap:14px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08); }
+    .lb-info-meta-item { display:flex; justify-content:space-between; align-items:baseline; }
+    .lb-info-meta-item span { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+    .lb-info-meta-item em { font-style:normal; font-size:12px; letter-spacing:0.08em; color:rgba(255,255,255,0.78); }
     .lb-img-wrap { max-width:90vw; max-height:80vh; position:relative; }
     .lb-img-wrap img { max-width:90vw; max-height:80vh; width:auto; height:auto; object-fit:contain; display:block; }
     .lb-btn { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border:1px solid rgba(255,255,255,0.2); background:rgba(0,0,0,0.3); color:rgba(255,255,255,0.7); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background var(--trans),color var(--trans); z-index:2; }
@@ -160,24 +210,16 @@
 
     /* CONTACT */
     #contact { background:var(--bg); }
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
-    .contact-info p { font-size:13px; line-height:2; color:var(--text-soft); margin-bottom:40px; }
-    .contact-details { display:flex; flex-direction:column; gap:20px; }
+    .contact-grid { max-width:640px; margin:0 auto; }
+    .contact-info { text-align:center; }
+    .contact-info p { font-size:13px; line-height:2; color:var(--text-soft); margin-bottom:48px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .contact-info .divider { margin-left:auto; margin-right:auto; }
+    .contact-details { display:flex; flex-direction:column; gap:24px; max-width:380px; margin:0 auto; text-align:left; }
     .contact-detail { display:flex; gap:20px; align-items:flex-start; }
     .detail-icon { width:36px; height:36px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .detail-icon svg { width:16px; height:16px; stroke:var(--accent-dk); fill:none; stroke-width:1.2; stroke-linecap:round; }
     .detail-text .label { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:3px; }
     .detail-text .value { font-size:13px; color:var(--text); line-height:1.6; }
-    .contact-form { display:flex; flex-direction:column; gap:20px; }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    .form-group { display:flex; flex-direction:column; gap:8px; }
-    .form-group label { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-dk); }
-    .form-group input, .form-group textarea, .form-group select { background:var(--surface); border:1px solid var(--surface); border-bottom-color:var(--accent); padding:12px 16px; font-family:var(--font-body); font-size:13px; font-weight:300; color:var(--text); outline:none; border-radius:0; transition:border-color var(--trans),background var(--trans); -webkit-appearance:none; }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { background:var(--white); border-color:var(--accent); border-bottom-color:var(--text); }
-    .form-group textarea { resize:none; height:120px; }
-    .form-group select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; }
-    .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:12px; background:var(--text); color:var(--bg); border:1px solid var(--text); padding:16px 36px; font-family:var(--font-body); font-size:10px; font-weight:400; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:background var(--trans),color var(--trans); align-self:flex-start; }
-    .btn-primary:hover { background:transparent; color:var(--text); }
 
     /* FOOTER */
     footer { background:var(--text); color:rgba(245,245,240,0.55); padding:56px 0; }
@@ -198,12 +240,22 @@
       .container{padding:0 36px;}
       .about-grid{gap:48px;}
       .service-cards{grid-template-columns:1fr 1fr;}
+      .language-grid{grid-template-columns:1fr;}
+      .form-row{grid-template-columns:1fr;}
       .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:900px){
+      .awards-head{grid-template-columns:1fr; gap:40px;}
+      .award-row{grid-template-columns:70px 1fr; gap:8px 24px;}
+      .award-row .award-prize{grid-column:2;}
+      .award-row .award-project{grid-column:2;}
+      .award-row .award-cat{grid-column:2; text-align:left;}
     }
     @media(max-width:768px){
       :root{--nav-h:56px;}
       .container{padding:0 24px;}
       section{padding:80px 0;}
+      .awards{margin-top:80px;padding-top:56px;}
       .nav-links{display:none;}
       .nav-toggle{display:flex;}
       .hero-content{padding:0 24px 64px;}
@@ -215,14 +267,22 @@
       .about-stats{gap:24px;}
       .services-head{margin-bottom:40px;}
       .service-cards{grid-template-columns:1fr;}
+      #language{padding:80px 0;}
+      .language-head{margin-bottom:56px;}
+      .language-card{padding:48px 32px 40px;}
+      .lang-glyph{font-size:48px;}
       .portfolio-head{flex-direction:column;align-items:flex-start;gap:16px;}
       .portfolio-grid{grid-template-columns:repeat(2,1fr);}
-      .contact-grid{grid-template-columns:1fr;gap:48px;}
-      .form-row{grid-template-columns:1fr;}
+      .contact-details{max-width:100%;}
       .footer-inner{flex-direction:column;text-align:center;}
       .footer-links{flex-wrap:wrap;justify-content:center;}
       .lb-thumbs{display:none;}
       .lb-btn{width:36px;height:36px;}
+      .lb-info-toggle{display:flex;}
+      .lb-body{flex-direction:column;}
+      .lb-info{width:100%; max-height:55vh; border-left:none; border-top:1px solid rgba(255,255,255,0.08); transform:translateY(100%); position:absolute; bottom:0; left:0; right:0; transition:transform 0.4s cubic-bezier(0.4,0,0.2,1); background:rgba(20,20,20,0.96); z-index:3; }
+      .lb-info.open{transform:translateY(0);}
+      .lb-info-inner{padding:32px 24px 32px;}
     }
     @media(max-width:480px){
       .portfolio-grid{grid-template-columns:1fr;}
@@ -266,21 +326,18 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active"><img src="images/portfolio/mu_house/01b.jpg" alt="mu_house" /></div>
-    <div class="hero-slide"><img src="images/portfolio/LakeSight/01b.jpg" alt="LakeSight" /></div>
-    <div class="hero-slide"><img src="images/portfolio/hive/01b.jpg" alt="hive" /></div>
-    <div class="hero-slide"><img src="images/portfolio/ColorLine/01b.jpg" alt="ColorLine" /></div>
-    <div class="hero-slide"><img src="images/portfolio/whitehouse/01b.jpg" alt="whitehouse" /></div>
+    <div class="hero-slide active"><img src="images/hero/p03.jpg" alt="山木生設計 主視覺 1" /></div>
+    <div class="hero-slide"><img src="images/hero/p04.jpg" alt="山木生設計 主視覺 2" /></div>
+    <div class="hero-slide"><img src="images/hero/p05.jpg" alt="山木生設計 主視覺 3" /></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-kanji">生</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">SMS Interior Design &nbsp;·&nbsp; Since 2008</p>
+    <p class="hero-eyebrow">SMS Interior Design &nbsp;·&nbsp; Since 2011 &nbsp;·&nbsp; Taipei / Shanghai</p>
     <h1 class="hero-title">
-      以靜謐之美<br>重塑居所本質
-      <em>Quiet Spaces, Human Stories</em>
+      空間，是時間的詩
     </h1>
-    <p class="hero-desc">山木生設計相信，真正的好設計不在於繁複的裝飾，而在於對生活本質的深刻理解，以空間語言道出每個家庭的獨特故事。</p>
+    <p class="hero-desc">山木生設計相信，真正的好設計不在於繁複的裝飾，而在於材質、光影與比例之間的純粹對話——讓每一個角落都能訴說屬於自己的故事。</p>
     <a href="#portfolio" class="btn-outline">
       探索作品
       <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -295,22 +352,119 @@
     <div class="about-grid">
       <div class="about-text reveal">
         <p class="section-label">About Us</p>
-        <h2 class="section-title">我們的設計哲學<span>Design Philosophy</span></h2>
+        <h2 class="section-title">關於山木生<span>Studio Profile</span></h2>
         <div class="divider"></div>
-        <p>山木生，取自自然生長之意。<strong>山</strong>代表穩重與靜謐，<strong>木</strong>象徵溫潤與有機，<strong>生</strong>則是空間與人的共同呼吸。</p>
-        <p>我們在簡約中找到巧妙，在剋制裡創造豐盈。每一個設計決策都經過深思，每一件傢具的擺放都有其道理。</p>
-        <p>超過十五年來，我們服務逾三百個家庭，始終堅持：<strong>空間是生活的容器，設計是給生活最溫柔的禮物。</strong></p>
+        <p>山木生設計，2011 年於台北成立。我們是一間以東方美學為核心、深耕住宅與商業空間的設計工作室。</p>
+        <p>從預售屋到中古屋翻新，從辦公室到餐酒空間——我們相信好的設計來自深度的傾聽，每一個空間都承載著主人獨一無二的故事。</p>
+        <p>2018 年起設立塗料部門，引進義大利古法灰泥工藝，提供從思考、選材到落地的一站式整合服務，讓設計的每一個層次都能被實踐。</p>
         <div class="about-stats">
-          <div class="stat-item"><div class="stat-num">300<span class="stat-unit">+</span></div><div class="stat-label">完成案例</div></div>
-          <div class="stat-item"><div class="stat-num">15<span class="stat-unit">年</span></div><div class="stat-label">設計經驗</div></div>
-          <div class="stat-item"><div class="stat-num">20<span class="stat-unit">+</span></div><div class="stat-label">媒體刊登</div></div>
+          <div class="stat-item"><div class="stat-num">2011<span class="stat-unit"></span></div><div class="stat-label">品牌成立</div></div>
+          <div class="stat-item"><div class="stat-num">10<span class="stat-unit">+</span></div><div class="stat-label">年深耕積累</div></div>
+          <div class="stat-item"><div class="stat-num">APIDA<span class="stat-unit"></span></div><div class="stat-label">國際肯定</div></div>
         </div>
       </div>
       <div class="about-visual reveal">
         <div class="about-img-wrap">
-          <img src="images/portfolio/purr/01b.jpg" alt="山木生設計作品" />
+          <img src="images/about/greenhouse.jpg" alt="山木生設計 — 綠意小屋" />
         </div>
         <div class="about-accent-block"></div>
+      </div>
+    </div>
+
+    <!-- AWARDS / TIMELINE -->
+    <div class="awards">
+      <div class="awards-head reveal">
+        <div>
+          <span class="award-mark">Milestones</span>
+          <h2 class="section-title">公司資歷<span>Company Timeline</span></h2>
+        </div>
+        <p>
+          從台北出發，山木生設計深耕十餘年，以東方美學為核心，
+          持續拓展空間創作的邊界。
+          2011 年成立，並於翌年獲<strong>APIDA 香港室內設計協會「居住空間」銅獎</strong>
+          嶄露國際舞台；其後陸續斬獲多項國際設計肯定，
+          並將設計思維延伸至塗料工藝與景觀領域。
+        </p>
+      </div>
+
+      <div class="awards-list reveal">
+        <div class="award-row">
+          <div class="award-year">2011</div>
+          <div class="award-prize">Founded<strong>公司成立</strong></div>
+          <div class="award-project">開啟空間詩意實踐<span>Brand &amp; Aesthetic Foundation</span></div>
+          <div class="award-cat">Taipei · 台北</div>
+        </div>
+        <div class="award-row">
+          <div class="award-year">2012</div>
+          <div class="award-prize">APIDA<strong>Bronze Award · 銅獎</strong></div>
+          <div class="award-project">居住空間類別<span>Residential Project</span></div>
+          <div class="award-cat">Hong Kong · 香港</div>
+        </div>
+        <div class="award-row">
+          <div class="award-year">2016</div>
+          <div class="award-prize">Consulting<strong>設計顧問</strong></div>
+          <div class="award-project">上海餐飲集團合作<span>Shanghai F&amp;B Group</span></div>
+          <div class="award-cat">Shanghai · 上海</div>
+        </div>
+        <div class="award-row">
+          <div class="award-year">2018</div>
+          <div class="award-prize">Atelier<strong>塗料部門成立</strong></div>
+          <div class="award-project">義大利古法灰泥工藝<span>Italian Lime Plaster Studio</span></div>
+          <div class="award-cat">Material · 工藝</div>
+        </div>
+        <div class="award-row">
+          <div class="award-year">2022</div>
+          <div class="award-prize">Landscape<strong>景觀設計顧問</strong></div>
+          <div class="award-project">知名景觀公司室內/工程顧問<span>Landscape &amp; Interior Advisor</span></div>
+          <div class="award-cat">Outdoor · 戶外</div>
+        </div>
+      </div>
+
+      <p class="awards-footnote">
+        ※ APIDA（Asia Pacific Interior Design Awards）由香港室內設計協會（HKIDA）主辦，是亞洲歷史最悠久、最具公信力的室內設計獎項之一。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN LANGUAGE -->
+<section id="language">
+  <div class="container">
+    <div class="language-head reveal">
+      <p class="section-label">Design Language</p>
+      <h2 class="section-title">我們的設計語言<span>Three Pillars</span></h2>
+      <p class="lang-lead">山、木、生──三個字，三種眼光。<br>它們是骨幹、是肌理、是靈魂，也是我們閱讀每一個空間的方式。</p>
+    </div>
+    <div class="language-grid">
+      <div class="language-card reveal">
+        <div class="lang-glyph">山</div>
+        <div class="lang-icon">
+          <svg viewBox="0 0 36 36"><path d="M3 30 L13 12 L20 22 L24 16 L33 30 Z"/></svg>
+        </div>
+        <div class="lang-title">結構之美</div>
+        <span class="lang-en">Structure</span>
+        <div class="lang-rule"></div>
+        <p class="lang-desc">以嚴謹的比例與幾何秩序為基底，每一道牆面、每一條線條精準計算，賦予空間沉穩的骨架與永恆的力量感。</p>
+      </div>
+      <div class="language-card reveal">
+        <div class="lang-glyph">木</div>
+        <div class="lang-icon">
+          <svg viewBox="0 0 36 36"><ellipse cx="18" cy="18" rx="14" ry="6"/><ellipse cx="18" cy="18" rx="9" ry="4"/><ellipse cx="18" cy="18" rx="4" ry="2"/></svg>
+        </div>
+        <div class="lang-title">材質之詩</div>
+        <span class="lang-en">Material</span>
+        <div class="lang-rule"></div>
+        <p class="lang-desc">精選天然材質，讓木、石、金屬在空間中展開純粹的對話。拒絕繁複的裝飾堆砌，以材質本身的紋理訴說深沉的美學。</p>
+      </div>
+      <div class="language-card reveal">
+        <div class="lang-glyph">生</div>
+        <div class="lang-icon">
+          <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="6"/><line x1="18" y1="3" x2="18" y2="9"/><line x1="18" y1="27" x2="18" y2="33"/><line x1="3" y1="18" x2="9" y2="18"/><line x1="27" y1="18" x2="33" y2="18"/><line x1="7" y1="7" x2="11" y2="11"/><line x1="25" y1="25" x2="29" y2="29"/><line x1="7" y1="29" x2="11" y2="25"/><line x1="25" y1="11" x2="29" y2="7"/></svg>
+        </div>
+        <div class="lang-title">光影之魂</div>
+        <span class="lang-en">Light</span>
+        <div class="lang-rule"></div>
+        <p class="lang-desc">光是最偉大的設計師。我們精心規劃光線的路徑，讓自然光在空間中流動、駐足，隨著時間的推移呈現無窮的詩意變化。</p>
       </div>
     </div>
   </div>
@@ -321,26 +475,33 @@
   <div class="container">
     <div class="services-head reveal">
       <p class="section-label">Services</p>
-      <h2 class="section-title">服務項目<span>What We Offer</span></h2>
+      <h2 class="section-title">全方位空間整合服務<span>What We Offer</span></h2>
+      <p class="services-lead">從一面牆的肌理，到兩岸的設計語境，山木生提供從思考、選材到落地的完整路徑。</p>
     </div>
     <div class="service-cards">
       <div class="service-card reveal">
-        <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="1"/><line x1="6" y1="16" x2="38" y2="16"/><line x1="18" y1="16" x2="18" y2="36"/><line x1="12" y1="22" x2="16" y2="22"/><line x1="12" y1="27" x2="16" y2="27"/><line x1="22" y1="22" x2="35" y2="22"/><line x1="22" y1="27" x2="35" y2="27"/><line x1="22" y1="32" x2="35" y2="32"/></svg></div>
-        <div class="service-title">住宅空間設計</div>
+        <div class="service-icon"><svg viewBox="0 0 44 44"><path d="M8 36 L8 18 L22 8 L36 18 L36 36 Z"/><path d="M18 36 L18 24 L26 24 L26 36"/><path d="M14 22 L14 18"/><path d="M30 22 L30 18"/></svg></div>
+        <div class="service-title">住宅設計</div>
         <span class="service-en">Residential Design</span>
-        <p class="service-desc">從格局規劃到材料選用，全程陪伴您打造理想居所。以人為本的設計思維，讓空間符合您的生活節奏與家庭溫度。</p>
+        <p class="service-desc">從預售屋到中古屋翻新，量身打造符合屋主生活習慣與美學品味的居住空間，每一個細節都是對生活的深刻理解。</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon"><svg viewBox="0 0 44 44"><path d="M8 36 L8 14 L22 6 L36 14 L36 36 Z"/><rect x="17" y="24" width="10" height="12"/><rect x="12" y="18" width="8" height="8"/><rect x="24" y="18" width="8" height="8"/></svg></div>
-        <div class="service-title">商業空間規劃</div>
+        <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="22" rx="1"/><path d="M6 14 L8 8 L36 8 L38 14"/><line x1="14" y1="22" x2="14" y2="36"/><line x1="22" y1="22" x2="22" y2="36"/><line x1="30" y1="22" x2="30" y2="36"/></svg></div>
+        <div class="service-title">商業空間</div>
         <span class="service-en">Commercial Space</span>
-        <p class="service-desc">餐飲、辦公、零售等商業場域，以品牌精神為核心，設計出具有市場競爭力、能與客戶產生共鳴的空間體驗。</p>
+        <p class="service-desc">辦公室、餐廳、旅宿、品牌旗艦店——將品牌精神轉譯為空間語言，打造令訪客印象深刻的場所體驗。</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="1"/><line x1="8" y1="18" x2="36" y2="18"/><line x1="22" y1="10" x2="22" y2="34"/><line x1="12" y1="24" x2="19" y2="24"/><line x1="12" y1="28" x2="19" y2="28"/><line x1="26" y1="24" x2="33" y2="24"/><line x1="26" y1="28" x2="33" y2="28"/></svg></div>
-        <div class="service-title">軟裝陳設顧問</div>
-        <span class="service-en">Interior Styling</span>
-        <p class="service-desc">傢具選配、燈光計畫、藝術品陳設，以細膩的感知力為空間注入溫度，讓每個角落都有值得停留的理由。</p>
+        <div class="service-icon"><svg viewBox="0 0 44 44"><path d="M14 8 L30 8 L32 14 L32 32 C32 34 30 36 28 36 L16 36 C14 36 12 34 12 32 L12 14 Z"/><path d="M18 16 L26 16"/><path d="M18 22 L26 22"/></svg></div>
+        <div class="service-title">塗料工藝</div>
+        <span class="service-en">Material &amp; Plaster</span>
+        <p class="service-desc">自 2018 年起，山木生塗料部門引進義大利頂級灰泥技術，提供從材質選配到施工的一站式服務，讓牆面成為空間的靈魂。</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="6" y="20" width="10" height="16"/><rect x="18" y="12" width="10" height="24"/><rect x="30" y="6" width="8" height="30"/></svg></div>
+        <div class="service-title">兩岸設計服務</div>
+        <span class="service-en">Cross-Strait Studio</span>
+        <p class="service-desc">台北總部與上海分部協同運作，深耕兩岸設計市場，融合東方美學與當代設計思維，提供跨文化的空間整合解決方案。</p>
       </div>
     </div>
   </div>
@@ -385,38 +546,23 @@
     <div class="contact-grid">
       <div class="contact-info reveal">
         <p class="section-label">Contact</p>
-        <h2 class="section-title">開始您的<br>設計旅程<span>Let's Create Together</span></h2>
+        <h2 class="section-title">聯絡我們<span>Let's Create Together</span></h2>
         <div class="divider"></div>
-        <p>每一個空間都有屬於它的最佳樣貌，<br>讓我們一起找到它。歡迎預約免費諮詢。</p>
+        <p>無論您正在籌備新居、規劃商業空間，或是希望為既有空間注入新的生命——歡迎與我們展開一場關於空間的對話。山木生設計提供免費初步諮詢服務。</p>
         <div class="contact-details">
           <div class="contact-detail">
+            <div class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg></div>
+            <div class="detail-text"><div class="label">Principal · 主理人</div><div class="value">Norbert Fu</div></div>
+          </div>
+          <div class="contact-detail">
             <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-            <div class="detail-text"><div class="label">Studio</div><div class="value">新北市新店區僑信路111號</div></div>
+            <div class="detail-text"><div class="label">Studio · 台北辦公室</div><div class="value">新北市新店區僑信路 111 號</div></div>
           </div>
           <div class="contact-detail">
             <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div class="detail-text"><div class="label">Phone</div><div class="value">02-2214-0908</div></div>
-          </div>
-          <div class="contact-detail">
-            <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="detail-text"><div class="label">Email</div><div class="value">info@sms-interior.com</div></div>
+            <div class="detail-text"><div class="label">Phone · 市話</div><div class="value">02-2214-0908</div></div>
           </div>
         </div>
-      </div>
-      <div class="reveal">
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group"><label>姓名 Name</label><input type="text" placeholder="您的姓名" required /></div>
-            <div class="form-group"><label>電話 Phone</label><input type="tel" placeholder="聯絡電話" /></div>
-          </div>
-          <div class="form-group"><label>電子郵件 Email</label><input type="email" placeholder="your@email.com" required /></div>
-          <div class="form-group">
-            <label>案件類型</label>
-            <select><option value="">請選擇</option><option>住宅空間設計</option><option>商業空間規劃</option><option>軟裝陳設顧問</option><option>其他諮詢</option></select>
-          </div>
-          <div class="form-group"><label>需求說明</label><textarea placeholder="請簡單描述您的空間需求、坪數、預算範圍……"></textarea></div>
-          <button type="submit" class="btn-primary">送出諮詢 <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </form>
       </div>
     </div>
   </div>
@@ -441,52 +587,98 @@
   <div class="lb-header">
     <div class="lb-title" id="lbTitle"></div>
     <div class="lb-counter" id="lbCounter"></div>
+    <button class="lb-info-toggle" id="lbInfoToggle" aria-label="作品資訊" onclick="toggleLbInfo()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor"/></svg>
+    </button>
     <button class="lb-close" onclick="closeLightbox()">✕</button>
   </div>
-  <div class="lb-main">
-    <button class="lb-btn lb-prev" onclick="lbNavigate(-1)">&#8249;</button>
-    <div class="lb-img-wrap"><img id="lbImg" src="" alt="" /></div>
-    <button class="lb-btn lb-next" onclick="lbNavigate(1)">&#8250;</button>
+  <div class="lb-body">
+    <div class="lb-main">
+      <button class="lb-btn lb-prev" onclick="lbNavigate(-1)">&#8249;</button>
+      <div class="lb-img-wrap"><img id="lbImg" src="" alt="" /></div>
+      <button class="lb-btn lb-next" onclick="lbNavigate(1)">&#8250;</button>
+    </div>
+    <aside class="lb-info" id="lbInfo">
+      <div class="lb-info-inner">
+        <p class="lb-info-cat" id="lbInfoCat"></p>
+        <h3 class="lb-info-zh" id="lbInfoZh"></h3>
+        <p class="lb-info-en" id="lbInfoEn"></p>
+        <div class="lb-info-rule"></div>
+        <p class="lb-info-tag" id="lbInfoTag"></p>
+        <p class="lb-info-desc" id="lbInfoDesc"></p>
+        <div class="lb-info-meta">
+          <div class="lb-info-meta-item"><span>類型</span><em id="lbInfoType"></em></div>
+          <div class="lb-info-meta-item"><span>影像</span><em id="lbInfoCount"></em></div>
+        </div>
+      </div>
+    </aside>
   </div>
   <div class="lb-thumbs" id="lbThumbs"></div>
 </div>
 
 <script>
 // ── Portfolio data ──────────────────────────────────────────────
+// 依照山木生設計 profile 的美學標準篩選：山（結構）、木（材質）、生（光影）
+// 已過濾低解析度照片；以及與整體調性不符的作品。
 const PROJECTS = [
-  { id:'mu_house',          zh:'木屋',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','06b.jpg','07b.jpg','08.jpg','10.jpg','11b.jpg','12.jpg','13b.jpg','14b.jpg','15b.jpg'], tall:true },
-  { id:'LakeSight',         zh:'湖景宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','04b.jpg','05b.jpg','06b.jpg','07b.jpg','10b.jpg','11b.jpg','15b.jpg','16b.jpg','18b.jpg','20b.jpg','22b.jpg','25b.jpg','27b.jpg'] },
-  { id:'purr',              zh:'Purr 寵物空間', en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','03b.jpg','05b.jpg','06b.jpg'] },
-  { id:'hive',              zh:'蜂巢宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','04b.jpg','05b.jpg','07b.jpg','11b.jpg','12.jpg','13b.jpg','15b.jpg','16b.jpg','17b.jpg','20b.jpg','22b.jpg'] },
-  { id:'ColorLine',         zh:'彩線居',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','07b.jpg','16b.jpg','19b.jpg'] },
-  { id:'whitehouse',        zh:'白宅',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','06.jpg','07.jpg','08b.jpg','09b.jpg'], tall:true },
-  { id:'a_community',       zh:'社區公共空間',  en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','05b.jpg','06b.jpg','07b.jpg','09b.jpg','12b.jpg','13b.jpg','15.jpg'] },
-  { id:'DineIn',            zh:'饗食空間',      en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','04b.jpg','10b.jpg','13b.jpg','14b.jpg'] },
-  { id:'MusicHouse',        zh:'音樂屋',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','07b.jpg','08b.jpg','09b.jpg','10b.jpg','11b.jpg','12b.jpg','13b.jpg','16b.jpg','17b.jpg'] },
-  { id:'Cloud',             zh:'雲宅',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','07b.jpg','11b.jpg','12b.jpg','14b.jpg','15b.jpg'] },
-  { id:'mountain',          zh:'山居',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','04b.jpg','04b.jpg','05.jpg','06b.jpg','07b.jpg','09b.jpg'] },
-  { id:'houseSue',          zh:'Sue 宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','07b.jpg','11b.jpg','13b.jpg','14b.jpg'], tall:true },
-  { id:'thecave',           zh:'洞穴宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','05b.jpg','06b.jpg','07b.jpg','10b.jpg','11b.jpg','12b.jpg'] },
-  { id:'hotel',             zh:'精品旅館',      en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','05b.jpg','06b.jpg','09b.jpg','10b.jpg'] },
-  { id:'HouseF',            zh:'F 宅',          en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','03b.jpg','06b.jpg','07.jpg','13b.jpg','14b.jpg','16b.jpg'] },
-  { id:'pathways',          zh:'徑',            en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','05b.jpg','08b.jpg','09b.jpg','11b.jpg','13b.jpg'] },
-  { id:'Jonny_ukulele',     zh:'烏克麗麗工作室',en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','03b.jpg','04b.jpg','05b.jpg','06.jpg','07b.jpg'] },
-  { id:'legocity',          zh:'樂高城',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','04b.jpg','06b.jpg','08b.jpg','10.jpg'] },
-  { id:'PetHotel',          zh:'寵物旅館',      en:'Commercial · 商業',   type:'commercial',  photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','09b.jpg'] },
-  { id:'magic_rock',        zh:'魔岩宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','04.jpg','05b.jpg'] },
-  { id:'present',           zh:'禮物宅',        en:'Residential · 住宅',  type:'residential', photos:['01b.jpg','02b.jpg','03b.jpg','04.jpg'] },
-  { id:'hut_in_the_secular',zh:'塵世中的小屋', en:'Residential · 住宅',  type:'residential', photos:['01b.jpg'] },
+  { id:'mu_house',    zh:'木屋',          en:'Mu House',          type:'residential', tagline:'木——以材質本身訴說美學',
+    desc:'以原木為主軸的居家空間，不刻意修飾的木紋與柔和光線交織，將自然的呼吸引入每日節奏。家具尺度貼近身體，留白替代裝飾，讓木材本身成為最深沉的語言。',
+    photos:['05b.jpg','01b.jpg','03b.jpg','04b.jpg','06b.jpg','07b.jpg'] },
+
+  { id:'LakeSight',   zh:'湖景宅',        en:'Lake Sight',        type:'residential', tagline:'生——借景入室，視野是最大的留白',
+    desc:'面向湖景的開窗成為空間的主角，室內以淺灰木皮與石材保留中性語彙，不喧賓奪主。家具量體輕巧、線條收斂，讓視線得以無阻地延伸到水面。',
+    photos:['10b.jpg','16b.jpg','18b.jpg','20b.jpg'] },
+
+  { id:'mountain',    zh:'山居',          en:'Mountain',          type:'residential', tagline:'山——結構之美，沉穩的居所骨架',
+    desc:'借自然之名，將石材的厚度與木紋的溫度引入室內。粗獷與細膩在同一個空間中各自成形，使家既有依靠的安定，也有呼吸的餘裕。',
+    photos:['01b.jpg','02b.jpg','06b.jpg','09b.jpg'] },
+
+  { id:'whitehouse',  zh:'白宅',          en:'White House',       type:'residential', tagline:'純白，是最寬厚的容納',
+    desc:'近乎全白的空間並非空無，而是給予生活最大的自由度。木質家具與綠意成為畫面唯一的色彩變化，每一道光的軌跡都被空間溫柔承接。',
+    photos:['01b.jpg','03b.jpg'] },
+
+  { id:'Cloud',       zh:'雲宅',          en:'Cloud',             type:'residential', tagline:'輕盈、流動、無聲',
+    desc:'淺色調與漂浮感家具，讓空間如雲般輕薄。捨去多餘隔間，以材質的微差界定機能；天花的線性燈光與通透開窗，為日常注入透氣的步調。',
+    photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','11b.jpg','12b.jpg','14b.jpg','15b.jpg'] },
+
+  { id:'pathways',    zh:'徑',            en:'Pathways',          type:'residential', tagline:'光沿著動線，緩緩流動',
+    desc:'以一條穿堂而過的軸線串連各區，光線沿著動線移動，在地面與牆上留下細微變化。日常因此擁有節奏，每一次走過都像是一段小旅行。',
+    photos:['05b.jpg','02b.jpg','08b.jpg','13b.jpg'] },
+
+  { id:'present',     zh:'禮物宅',        en:'Present',           type:'residential', tagline:'設計，是給生活的禮物',
+    desc:'剛剛好的尺度、剛剛好的收納、剛剛好的光。設計不為展演而存在，而是讓每天回家的瞬間，都像收到一份簡單卻誠懇的禮物。',
+    photos:['01b.jpg','02b.jpg','03b.jpg'] },
+
+  { id:'houseSue',    zh:'Sue 宅',        en:'Sue\u2019s House',  type:'residential', tagline:'量身的尺度，巧思藏於細節',
+    desc:'根據使用者的身高、習慣與動線量身打造的小宅。每一處收納都呼應著日常動作，看似不費力的便利，其實是反覆推敲後的精準設計。',
+    photos:['03b.jpg','05b.jpg','11b.jpg','13b.jpg','14b.jpg'] },
+
+  { id:'ColorLine',   zh:'彩線居',        en:'Color Line',        type:'residential', tagline:'低彩度中的視覺軸線',
+    desc:'以中性淺色為底，輔以細緻的線條切割與材質對比，在沉靜中拉出空間層次。看似簡單的構成裡，藏著光線、材質與比例三者間的反覆推敲。',
+    photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','07b.jpg','16b.jpg','19b.jpg'] },
+
+  { id:'hive',        zh:'蜂巢居',        en:'Hive',              type:'residential', tagline:'混凝土與微光下的安棲',
+    desc:'以混凝土天花、深色塗料與光的精準佈局塑造沉穩居所。剛與柔在同一場域對話，將都市的喧囂阻隔在外，讓夜晚回到最深的安靜。',
+    photos:['15b.jpg','17b.jpg','13b.jpg','11b.jpg','07b.jpg','05b.jpg','04b.jpg','16b.jpg','22b.jpg'] },
+
+  { id:'hotel',       zh:'辦公空間',      en:'Office',            type:'commercial',  tagline:'以純粹比例與光界定秩序',
+    desc:'以純粹比例與自然質地界定秩序，營造沉穩而開放的工作場域。線性燈光劃過天花，為思考與創造保留自在延展的餘地。',
+    photos:['05b.jpg','09b.jpg'] },
+
+  { id:'a_community', zh:'社區公共空間',  en:'Community Lounge',  type:'commercial',  tagline:'屬於所有人的第二客廳',
+    desc:'以家的尺度回應公共空間。溫潤的木作、低調的燈光、可以靜靜閱讀也能熱鬧聚會的彈性配置——讓鄰里之間多一處願意停留的地方。',
+    photos:['01b.jpg','07b.jpg','09b.jpg','13b.jpg'] },
 ];
 
 // ── Build portfolio grid ────────────────────────────────────────
 const grid = document.getElementById('portfolioGrid');
 PROJECTS.forEach((p, i) => {
   const item = document.createElement('div');
-  item.className = 'portfolio-item reveal' + (p.tall ? ' tall' : '');
+  item.className = 'portfolio-item reveal';
   item.dataset.type = p.type;
   item.innerHTML = `
     <div class="portfolio-thumb">
-      <img src="images/portfolio/${p.id}/01b.jpg" alt="${p.zh}" loading="lazy" />
+      <img src="images/portfolio/${p.id}/${p.photos[0]}" alt="${p.zh}" loading="lazy" />
     </div>
     <div class="portfolio-overlay">
       <div class="portfolio-info">
@@ -520,9 +712,25 @@ function openLightbox(projectIndex) {
   lbIndex = 0;
   lbEl.classList.add('open');
   document.body.style.overflow = 'hidden';
+  renderLbInfo();
   renderLbThumbs();
   showLbPhoto(0);
 }
+
+function renderLbInfo() {
+  const typeLabel = lbProject.type === 'commercial' ? '商業空間' : '住宅空間';
+  document.getElementById('lbInfoCat').textContent  = lbProject.type === 'commercial' ? 'Commercial Project' : 'Residential Project';
+  document.getElementById('lbInfoZh').textContent   = lbProject.zh;
+  document.getElementById('lbInfoEn').textContent   = lbProject.en;
+  document.getElementById('lbInfoTag').textContent  = lbProject.tagline || '';
+  document.getElementById('lbInfoDesc').textContent = lbProject.desc || '';
+  document.getElementById('lbInfoType').textContent = typeLabel;
+  document.getElementById('lbInfoCount').textContent= lbProject.photos.length + ' 張';
+  // Reset mobile drawer state
+  document.getElementById('lbInfo').classList.remove('open');
+}
+
+function toggleLbInfo() { document.getElementById('lbInfo').classList.toggle('open'); }
 
 function renderLbThumbs() {
   lbThumbs.innerHTML = '';
@@ -610,15 +818,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ── Contact form ────────────────────────────────────────────────
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.btn-primary');
-  const orig = btn.innerHTML;
-  btn.innerHTML = '已送出 ✓';
-  btn.disabled = true;
-  setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; e.target.reset(); }, 3000);
-}
 </script>
 </body>
 </html>
