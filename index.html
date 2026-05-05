@@ -3,163 +3,261 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>山木生設計 SMS Interior Design</title>
+  <title>山木生設計 SMS Interior Design｜以自然為師．以人為本．以美為道</title>
+  <meta name="description" content="山木生設計（SMS Interior Design）2011 年於台北成立，深耕住宅、商業空間、塗料工藝與兩岸設計服務。曾獲 APIDA 香港室內設計協會居住空間銅獎，以自然材質、光影與比例的純粹對話打造每一個空間。" />
+  <meta name="keywords" content="山木生設計, SMS Interior Design, 室內設計, 住宅設計, 商業空間, 塗料工藝, 義大利灰泥, 兩岸設計, 台北設計師, 上海設計, APIDA" />
+  <meta name="author" content="山木生設計 SMS Interior Design" />
+  <meta name="theme-color" content="#F5F5F0" />
+  <link rel="canonical" href="https://www.sms-interior.com/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="山木生設計 SMS Interior Design" />
+  <meta property="og:description" content="空間，是時間的詩。以自然為師、以人為本、以美為道——山木生設計，2011 年成立於台北。" />
+  <meta property="og:url" content="https://www.sms-interior.com/" />
+  <meta property="og:image" content="https://www.sms-interior.com/images/hero/p03.jpg" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="山木生設計 SMS Interior Design" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="山木生設計 SMS Interior Design" />
+  <meta name="twitter:description" content="空間，是時間的詩。山木生設計，2011 年成立於台北。" />
+  <meta name="twitter:image" content="https://www.sms-interior.com/images/hero/p03.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Structured data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "山木生設計",
+    "alternateName": "SMS Interior Design",
+    "description": "以東方美學為核心、深耕住宅與商業空間的設計工作室，2011 年成立於台北。",
+    "url": "https://www.sms-interior.com/",
+    "telephone": "+886-2-2214-0908",
+    "foundingDate": "2011",
+    "founder": {"@type": "Person", "name": "Norbert Fu"},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "新北市新店區僑信路 111 號",
+      "addressLocality": "新北市",
+      "addressRegion": "新店區",
+      "addressCountry": "TW"
+    },
+    "areaServed": ["台灣", "上海"],
+    "award": "APIDA 香港室內設計協會 居住空間 銅獎 (2012)",
+    "sameAs": ["https://www.facebook.com/pages/山木生室內設計粉絲專頁/144285072302889"]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:#F5F5F0; --surface:#EFEFEA; --accent:#BDBDBD; --accent-dk:#999;
-      --text:#2C2C2C; --text-soft:#7A7A7A; --white:#FFF; --nav-h:64px;
-      --font-head:'Noto Serif TC',serif; --font-body:'Noto Sans TC',sans-serif;
-      --trans:0.35s cubic-bezier(0.4,0,0.2,1);
+      /* Palette — 米白 / 淡灰，nendo 基調 */
+      --bg:#F5F5F0; --surface:#EFEFEA; --surface-2:#E9E9E2;
+      --accent:#BDBDBD; --accent-dk:#8E8E8E; --hairline:#E2E2DC;
+      --text:#1F1F1F; --text-mid:#4A4A4A; --text-soft:#6E6E6E;
+      --white:#FFF; --nav-h:72px;
+      /* Typography — Helvetica Light + Noto Sans TC fallback */
+      --font-head:'Helvetica Neue', Helvetica, 'Noto Sans TC', sans-serif;
+      --font-body:'Helvetica Neue', Helvetica, 'Noto Sans TC', sans-serif;
+      --trans:0.4s cubic-bezier(0.4,0,0.2,1);
+      /* Type scale (modular) */
+      --fs-xs:11px; --fs-sm:13px; --fs-base:14px; --fs-md:16px;
+      --fs-lg:20px; --fs-xl:28px; --fs-2xl:40px; --fs-3xl:56px;
     }
+    /* Visually hidden (for SEO H1) */
+    .vh { position:absolute !important; clip:rect(1px,1px,1px,1px); width:1px; height:1px; overflow:hidden; white-space:nowrap; }
     html { scroll-behavior:smooth; }
-    body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-weight:300; font-size:15px; line-height:1.85; -webkit-font-smoothing:antialiased; }
+    body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-weight:300; font-size:15px; line-height:1.85; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
     img { display:block; width:100%; height:100%; object-fit:cover; }
     a { color:inherit; text-decoration:none; }
     ul { list-style:none; }
-    .container { width:100%; max-width:1100px; margin:0 auto; padding:0 48px; }
+    button { font:inherit; }
+    .container { width:100%; max-width:1180px; margin:0 auto; padding:0 64px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+    }
 
-    /* NAV */
-    #nav { position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:100; background:rgba(245,245,240,0.92); backdrop-filter:blur(12px); border-bottom:1px solid transparent; transition:border-color var(--trans); }
-    #nav.scrolled { border-color:var(--accent); }
+    /* NAV — 透明、安靜，捲動後加細 hairline */
+    #nav { position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:100; background:rgba(245,245,240,0.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:border-color var(--trans),background var(--trans); }
+    #nav.scrolled { border-color:var(--hairline); background:rgba(245,245,240,0.94); }
     .nav-inner { height:100%; display:flex; align-items:center; justify-content:space-between; }
-    .nav-logo { display:flex; align-items:center; gap:12px; }
-    .nav-logo img { width:auto; height:36px; object-fit:contain; }
-    .nav-logo .zh { font-family:var(--font-head); font-weight:300; font-size:16px; letter-spacing:0.12em; }
-    .nav-logo .en { font-size:9px; letter-spacing:0.28em; color:var(--accent-dk); text-transform:uppercase; }
-    .nav-links { display:flex; align-items:center; gap:40px; }
-    .nav-links a { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-soft); position:relative; padding-bottom:2px; transition:color var(--trans); }
+    .nav-logo { display:flex; align-items:center; gap:14px; }
+    .nav-logo img { width:auto; height:32px; object-fit:contain; }
+    .nav-logo .zh { font-family:var(--font-head); font-weight:300; font-size:15px; letter-spacing:0.18em; color:var(--text); }
+    .nav-logo .en { font-size:9px; letter-spacing:0.22em; color:var(--accent-dk); text-transform:uppercase; margin-top:3px; }
+    .nav-links { display:flex; align-items:center; gap:44px; }
+    .nav-links a { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-soft); position:relative; padding-bottom:3px; transition:color var(--trans); font-weight:400; }
     .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--text); transition:width var(--trans); }
-    .nav-links a:hover { color:var(--text); }
-    .nav-links a:hover::after { width:100%; }
-    .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-links a:hover, .nav-links a:focus-visible { color:var(--text); }
+    .nav-links a:hover::after, .nav-links a:focus-visible::after { width:100%; }
+    .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
     .nav-toggle span { display:block; width:22px; height:1px; background:var(--text); transition:transform var(--trans),opacity var(--trans); }
     .nav-toggle.open span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity:0; }
     .nav-toggle.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
-    .nav-drawer { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--accent); padding:24px 48px; }
-    .nav-drawer a { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-soft); padding:12px 0; border-bottom:1px solid var(--surface); transition:color var(--trans); }
+    .nav-drawer { display:none; flex-direction:column; background:var(--bg); border-top:1px solid var(--hairline); padding:24px 32px 40px; }
+    .nav-drawer a { font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-soft); padding:14px 0; border-bottom:1px solid var(--hairline); transition:color var(--trans); }
     .nav-drawer a:hover { color:var(--text); }
     .nav-drawer.open { display:flex; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
 
     /* HERO */
-    #hero { position:relative; height:100vh; min-height:600px; overflow:hidden; }
+    #hero { position:relative; height:100vh; min-height:620px; overflow:hidden; }
     .hero-slides { position:absolute; inset:0; }
-    .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
+    .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease; }
     .hero-slide.active { opacity:1; }
-    .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center; }
-    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.25) 55%, transparent 100%); }
-    .hero-kanji { position:absolute; top:50%; right:6%; transform:translateY(-50%); font-family:var(--font-head); font-weight:300; font-size:clamp(160px,20vw,300px); line-height:1; color:rgba(255,255,255,0.07); pointer-events:none; user-select:none; }
-    .hero-content { position:absolute; bottom:80px; left:0; right:0; z-index:2; padding:0 60px; max-width:720px; }
-    .hero-eyebrow { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:20px; }
-    .hero-title { font-family:var(--font-head); font-weight:300; font-size:clamp(32px,3.8vw,56px); line-height:1.2; letter-spacing:0.06em; color:var(--white); margin-bottom:20px; }
-    .hero-title em { font-style:normal; display:block; font-size:0.48em; letter-spacing:0.2em; color:rgba(255,255,255,0.55); margin-top:10px; }
-    .hero-desc { font-size:13px; line-height:2; color:rgba(255,255,255,0.7); max-width:400px; margin-bottom:36px; }
-    .btn-outline { display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--white); border:1px solid rgba(255,255,255,0.45); padding:13px 26px; transition:background var(--trans),border-color var(--trans); }
-    .btn-outline:hover { background:rgba(255,255,255,0.15); border-color:var(--white); }
+    .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.04); transition:transform 8s ease; }
+    .hero-slide.active img { transform:scale(1); }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0.15) 50%, rgba(20,20,20,0.05) 100%); }
+    .hero-kanji { position:absolute; top:50%; right:5%; transform:translateY(-50%); font-family:var(--font-head); font-weight:200; font-size:clamp(120px,14vw,220px); line-height:1; color:rgba(255,255,255,0.06); pointer-events:none; user-select:none; letter-spacing:-0.02em; }
+    .hero-content { position:absolute; bottom:96px; left:0; right:0; z-index:2; padding:0 64px; max-width:760px; }
+    .hero-eyebrow { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:24px; font-weight:400; }
+    .hero-eyebrow .dot { display:inline-block; width:3px; height:3px; background:rgba(255,255,255,0.5); border-radius:50%; vertical-align:middle; margin:0 14px; }
+    .hero-title { font-family:var(--font-head); font-weight:200; font-size:clamp(30px,4vw,52px); line-height:1.25; letter-spacing:0.04em; color:var(--white); margin-bottom:24px; }
+    .hero-title em { font-style:normal; display:block; font-size:0.34em; letter-spacing:0.18em; color:rgba(255,255,255,0.62); margin-top:14px; font-weight:300; }
+    .hero-desc { font-size:13.5px; line-height:2.05; color:rgba(255,255,255,0.78); max-width:420px; margin-bottom:40px; font-weight:300; }
+    .btn-outline { display:inline-flex; align-items:center; gap:14px; font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--white); border:1px solid rgba(255,255,255,0.5); padding:14px 28px; transition:background var(--trans),border-color var(--trans),color var(--trans); font-weight:400; }
+    .btn-outline:hover, .btn-outline:focus-visible { background:rgba(255,255,255,0.92); border-color:rgba(255,255,255,0.92); color:var(--text); }
     .btn-outline svg { transition:transform var(--trans); }
-    .btn-outline:hover svg { transform:translateX(4px); }
-    .hero-scroll { position:absolute; bottom:32px; right:48px; z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; }
-    .hero-scroll span { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.45); writing-mode:vertical-rl; }
-    .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(255,255,255,0.45),transparent); animation:scrollAnim 2s ease-in-out infinite; }
+    .btn-outline:hover svg { transform:translateX(5px); }
+    .hero-scroll { position:absolute; bottom:36px; right:48px; z-index:2; display:flex; flex-direction:column; align-items:center; gap:10px; }
+    .hero-scroll span { font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.55); writing-mode:vertical-rl; }
+    .scroll-line { width:1px; height:56px; background:linear-gradient(to bottom,rgba(255,255,255,0.55),transparent); animation:scrollAnim 2.4s ease-in-out infinite; }
     @keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top;opacity:1} 50%{transform:scaleY(1);transform-origin:top;opacity:1} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom;opacity:0.3} }
 
-    /* SECTIONS */
-    section { padding:120px 0; }
-    .section-label { font-size:9px; letter-spacing:0.38em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:16px; }
-    .section-title { font-family:var(--font-head); font-weight:300; font-size:clamp(24px,3.2vw,38px); line-height:1.3; letter-spacing:0.05em; }
-    .section-title span { display:block; font-family:var(--font-body); font-size:0.4em; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-dk); margin-top:6px; }
-    .divider { width:40px; height:1px; background:var(--accent); margin:28px 0; }
+    /* SECTIONS — 更大的呼吸 */
+    section { padding:140px 0; }
+    .section-label { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:20px; font-weight:400; }
+    .section-title { font-family:var(--font-head); font-weight:200; font-size:clamp(26px,3vw,40px); line-height:1.32; letter-spacing:0.02em; color:var(--text); }
+    .section-title span { display:block; font-family:var(--font-body); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); margin-top:10px; font-weight:400; }
+    .divider { width:36px; height:1px; background:var(--accent); margin:32px 0; }
 
     /* ABOUT */
     #about { background:var(--bg); }
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-    .about-text p { font-size:14px; line-height:2.1; color:var(--text-soft); margin-bottom:20px; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:120px; align-items:center; }
+    .about-text p { font-size:14px; line-height:2.15; color:var(--text-mid); margin-bottom:22px; font-weight:300; }
     .about-text strong { font-weight:400; color:var(--text); }
     .about-visual { position:relative; }
-    .about-img-wrap { width:100%; aspect-ratio:4/3; overflow:hidden; }
+    .about-img-wrap { width:100%; aspect-ratio:4/5; overflow:hidden; }
     .about-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:65% 50%; }
-    .about-accent-block { position:absolute; bottom:-24px; right:-24px; width:140px; height:140px; background:var(--surface); border:1px solid var(--accent); z-index:-1; }
-    .about-stats { display:flex; gap:40px; margin-top:48px; padding-top:40px; border-top:1px solid var(--surface); }
-    .stat-num { font-family:var(--font-head); font-weight:300; font-size:36px; letter-spacing:-0.02em; color:var(--text); line-height:1; }
-    .stat-unit { font-size:12px; color:var(--accent-dk); margin-left:2px; }
-    .stat-label { font-size:11px; letter-spacing:0.15em; color:var(--text-soft); margin-top:6px; }
+    .about-stats { display:flex; gap:48px; margin-top:56px; padding-top:44px; border-top:1px solid var(--hairline); }
+    .stat-item { flex:1; }
+    .stat-num { font-family:var(--font-head); font-weight:200; font-size:34px; letter-spacing:-0.01em; color:var(--text); line-height:1; }
+    .stat-unit { font-size:13px; color:var(--accent-dk); margin-left:2px; font-weight:300; }
+    .stat-label { font-size:11px; letter-spacing:0.18em; color:var(--text-soft); margin-top:10px; }
 
     /* AWARDS */
-    .awards { margin-top:120px; padding-top:80px; border-top:1px solid var(--surface); }
-    .awards-head { display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:start; margin-bottom:64px; }
+    .awards { margin-top:160px; padding-top:96px; border-top:1px solid var(--hairline); }
+    .awards-head { display:grid; grid-template-columns:1fr 1.5fr; gap:96px; align-items:start; margin-bottom:80px; }
     .awards-head .section-title { margin-top:8px; }
-    .awards-head p { font-size:14px; line-height:2.1; color:var(--text-soft); }
-    .awards-head .award-mark { font-family:var(--font-head); font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:10px; display:block; }
+    .awards-head p { font-size:14px; line-height:2.15; color:var(--text-mid); font-weight:300; }
+    .awards-head .award-mark { font-family:var(--font-head); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:14px; display:block; font-weight:400; }
     .awards-list { display:flex; flex-direction:column; }
-    .award-row { display:grid; grid-template-columns:90px 1fr 1.6fr 1fr; gap:32px; padding:24px 0; border-top:1px solid var(--surface); align-items:baseline; }
-    .award-row:last-child { border-bottom:1px solid var(--surface); }
-    .award-year { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.02em; color:var(--text); }
-    .award-prize { font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-dk); }
-    .award-prize strong { font-weight:400; color:var(--text); letter-spacing:0.06em; text-transform:none; font-size:13px; display:block; margin-top:2px; }
-    .award-project { font-family:var(--font-head); font-size:15px; letter-spacing:0.06em; color:var(--text); }
-    .award-project span { display:block; font-family:var(--font-body); font-size:10px; letter-spacing:0.22em; color:var(--text-soft); text-transform:uppercase; margin-top:3px; }
-    .award-cat { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent-dk); text-align:right; }
-    .awards-footnote { margin-top:24px; font-size:11px; line-height:1.9; color:var(--accent-dk); letter-spacing:0.04em; }
+    .award-row { display:grid; grid-template-columns:96px 1fr 1.6fr 1fr; gap:32px; padding:28px 0; border-top:1px solid var(--hairline); align-items:baseline; transition:padding-left var(--trans); }
+    .award-row:last-child { border-bottom:1px solid var(--hairline); }
+    .award-row:hover { padding-left:6px; }
+    .award-year { font-family:var(--font-head); font-weight:200; font-size:20px; letter-spacing:0.01em; color:var(--text); }
+    .award-prize { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-dk); font-weight:400; }
+    .award-prize strong { font-weight:400; color:var(--text); letter-spacing:0.04em; text-transform:none; font-size:14px; display:block; margin-top:4px; }
+    .award-project { font-family:var(--font-head); font-size:15px; letter-spacing:0.03em; color:var(--text); font-weight:300; }
+    .award-project span { display:block; font-family:var(--font-body); font-size:10px; letter-spacing:0.2em; color:var(--text-soft); text-transform:uppercase; margin-top:5px; }
+    .award-cat { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-dk); text-align:right; }
+    .awards-footnote { margin-top:32px; font-size:11.5px; line-height:1.95; color:var(--accent-dk); letter-spacing:0.02em; max-width:680px; }
 
-    /* DESIGN LANGUAGE */
-    #language { background:var(--bg); padding:120px 0; border-top:1px solid var(--surface); }
-    .language-head { text-align:center; margin-bottom:96px; }
+    /* DESIGN LANGUAGE — 純留白、無格線 */
+    #language { background:var(--surface); padding:140px 0; }
+    .language-head { text-align:center; margin-bottom:112px; }
     .language-head .section-label { display:block; }
     .language-head .section-title { margin:0 auto; }
-    .language-head .lang-lead { max-width:620px; margin:32px auto 0; font-size:13.5px; line-height:2.1; color:var(--text-soft); }
-    .language-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--accent); border:1px solid var(--accent); }
-    .language-card { background:var(--bg); padding:64px 44px 56px; text-align:left; transition:background var(--trans); }
-    .language-card:hover { background:var(--white); }
-    .lang-glyph { font-family:var(--font-head); font-weight:300; font-size:64px; line-height:1; color:var(--text); margin-bottom:18px; letter-spacing:0.04em; }
-    .lang-icon { width:36px; height:36px; margin-bottom:36px; }
-    .lang-icon svg { width:36px; height:36px; stroke:var(--accent-dk); fill:none; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; }
-    .lang-title { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.08em; color:var(--text); margin-bottom:8px; }
-    .lang-en { font-size:9px; letter-spacing:0.32em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:24px; display:block; }
-    .lang-rule { width:24px; height:1px; background:var(--accent); margin-bottom:24px; }
-    .lang-desc { font-size:13px; line-height:2; color:var(--text-soft); }
+    .language-head .lang-lead { max-width:580px; margin:36px auto 0; font-size:14px; line-height:2.15; color:var(--text-mid); font-weight:300; }
+    .language-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
+    .language-card { background:transparent; padding:8px 16px; text-align:left; transition:transform var(--trans); }
+    .language-card:hover { transform:translateY(-3px); }
+    .lang-glyph { font-family:var(--font-head); font-weight:200; font-size:72px; line-height:1; color:var(--text); margin-bottom:24px; letter-spacing:0.02em; }
+    .lang-icon { width:32px; height:32px; margin-bottom:28px; }
+    .lang-icon svg { width:32px; height:32px; stroke:var(--accent-dk); fill:none; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; transition:stroke var(--trans); }
+    .language-card:hover .lang-icon svg { stroke:var(--text); }
+    .lang-title { font-family:var(--font-head); font-weight:300; font-size:17px; letter-spacing:0.06em; color:var(--text); margin-bottom:8px; }
+    .lang-en { font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:24px; display:block; }
+    .lang-rule { width:28px; height:1px; background:var(--accent); margin-bottom:24px; }
+    .lang-desc { font-size:13px; line-height:2.05; color:var(--text-mid); font-weight:300; }
 
-    /* SERVICES */
-    #services { background:var(--surface); }
-    .services-head { margin-bottom:72px; }
-    .services-head .section-title { margin-bottom:20px; }
-    .services-lead { max-width:600px; font-size:13.5px; line-height:2.1; color:var(--text-soft); margin-top:18px; }
-    .service-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--accent); border:1px solid var(--accent); }
-    .service-card { background:var(--bg); padding:48px 36px; transition:background var(--trans); }
-    .service-card:hover { background:var(--white); }
-    .service-icon { width:44px; height:44px; margin-bottom:32px; }
-    .service-icon svg { width:44px; height:44px; stroke:var(--accent-dk); fill:none; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; transition:stroke var(--trans); }
+    /* SERVICES — 純留白、hairline 內部分隔 */
+    #services { background:var(--bg); }
+    .services-head { margin-bottom:88px; max-width:780px; }
+    .services-head .section-title { margin-bottom:0; }
+    .services-lead { max-width:600px; font-size:14px; line-height:2.15; color:var(--text-mid); margin-top:24px; font-weight:300; }
+    .service-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:0; border-top:1px solid var(--hairline); }
+    .service-card { background:var(--bg); padding:56px 48px 56px 0; border-bottom:1px solid var(--hairline); transition:padding-left var(--trans); position:relative; }
+    .service-card:nth-child(odd) { padding-right:48px; }
+    .service-card:nth-child(even) { padding-left:48px; border-left:1px solid var(--hairline); }
+    .service-card:hover { padding-left:8px; }
+    .service-card:nth-child(even):hover { padding-left:56px; }
+    .service-icon { width:40px; height:40px; margin-bottom:32px; }
+    .service-icon svg { width:40px; height:40px; stroke:var(--accent-dk); fill:none; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; transition:stroke var(--trans); }
     .service-card:hover .service-icon svg { stroke:var(--text); }
-    .service-title { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.06em; margin-bottom:16px; }
-    .service-en { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:20px; display:block; }
-    .service-desc { font-size:13px; line-height:1.95; color:var(--text-soft); }
+    .service-title { font-family:var(--font-head); font-weight:300; font-size:18px; letter-spacing:0.04em; margin-bottom:6px; }
+    .service-en { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:20px; display:block; }
+    .service-desc { font-size:13px; line-height:2; color:var(--text-mid); font-weight:300; max-width:440px; }
 
-    /* PORTFOLIO */
+    /* PORTFOLIO — editorial asymmetric grid, nendo 風格 */
     #portfolio { background:var(--bg); }
-    .portfolio-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; }
-    .link-more { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-soft); display:flex; align-items:center; gap:8px; transition:color var(--trans); }
+    .portfolio-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; gap:32px; }
+    .link-more { font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-soft); display:flex; align-items:center; gap:10px; transition:color var(--trans); font-weight:400; }
     .link-more svg { transition:transform var(--trans); }
     .link-more:hover { color:var(--text); }
     .link-more:hover svg { transform:translateX(4px); }
-    .portfolio-filter { display:flex; gap:0; margin-bottom:48px; border-bottom:1px solid var(--accent); overflow-x:auto; }
-    .filter-tab { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-soft); padding:10px 20px; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; white-space:nowrap; transition:color var(--trans),border-color var(--trans); }
-    .filter-tab:hover, .filter-tab.active { color:var(--text); border-color:var(--text); }
+    .portfolio-filter { display:flex; gap:0; margin-bottom:88px; border-bottom:1px solid var(--hairline); overflow-x:auto; }
+    .filter-tab { font-family:var(--font-body); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-soft); padding:14px 24px 14px 0; cursor:pointer; border-bottom:1px solid transparent; margin-right:24px; margin-bottom:-1px; white-space:nowrap; transition:color var(--trans),border-color var(--trans); background:none; border-left:none; border-top:none; border-right:none; font-weight:400; }
+    .filter-tab:hover, .filter-tab.active { color:var(--text); border-bottom-color:var(--text); }
 
-    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--accent); }
-    .portfolio-item { position:relative; overflow:hidden; cursor:pointer; aspect-ratio:4/3; background:var(--bg); }
-    .portfolio-thumb { width:100%; height:100%; }
-    .portfolio-thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
-    .portfolio-item:hover .portfolio-thumb img { transform:scale(1.04); }
-    .portfolio-overlay { position:absolute; inset:0; background:rgba(44,44,44,0); display:flex; align-items:flex-end; padding:24px; transition:background var(--trans); }
-    .portfolio-item:hover .portfolio-overlay { background:rgba(44,44,44,0.55); }
-    .portfolio-info { transform:translateY(10px); opacity:0; transition:transform var(--trans),opacity var(--trans); }
-    .portfolio-item:hover .portfolio-info { transform:translateY(0); opacity:1; }
-    .portfolio-info h3 { font-family:var(--font-head); font-weight:300; font-size:15px; letter-spacing:0.06em; color:var(--white); margin-bottom:4px; }
-    .portfolio-info p { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.65); }
+    /* 12-column editorial grid with asymmetric spans */
+    .portfolio-grid { display:grid; grid-template-columns:repeat(12,1fr); column-gap:32px; row-gap:112px; }
+    .portfolio-item { grid-column:span 4; display:block; background:none; border:none; padding:0; cursor:pointer; text-align:left; font:inherit; color:inherit; -webkit-tap-highlight-color:transparent; }
+    /* Featured (span 8) at items 1, 7, 13, 19 — editorial rhythm across 21 items */
+    .portfolio-item:nth-child(1),
+    .portfolio-item:nth-child(7),
+    .portfolio-item:nth-child(13),
+    .portfolio-item:nth-child(19) { grid-column:span 8; }
+    /* Subtle vertical stagger on selected items — magazine rhythm */
+    .portfolio-item:nth-child(2),
+    .portfolio-item:nth-child(5),
+    .portfolio-item:nth-child(10),
+    .portfolio-item:nth-child(15),
+    .portfolio-item:nth-child(20) { margin-top:72px; }
+
+    .p-image { width:100%; aspect-ratio:4/3; overflow:hidden; background:var(--surface); }
+    .portfolio-item:nth-child(1) .p-image,
+    .portfolio-item:nth-child(7) .p-image,
+    .portfolio-item:nth-child(13) .p-image,
+    .portfolio-item:nth-child(19) .p-image { aspect-ratio:16/10; }
+    .p-image img { width:100%; height:100%; object-fit:cover; transition:transform 1.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.6s ease; filter:saturate(0.94); }
+    .portfolio-item:hover .p-image img,
+    .portfolio-item:focus-visible .p-image img { transform:scale(1.025); filter:saturate(1); }
+
+    .p-meta { margin-top:22px; display:grid; grid-template-columns:auto 1fr auto; align-items:baseline; column-gap:24px; padding-top:18px; border-top:1px solid var(--hairline); }
+    .p-index { font-size:10.5px; letter-spacing:0.28em; color:var(--text-soft); font-variant-numeric:tabular-nums; align-self:start; padding-top:6px; }
+    .p-title { display:flex; flex-direction:column; gap:6px; min-width:0; }
+    .p-zh { font-family:var(--font-head); font-weight:200; font-size:22px; letter-spacing:0.04em; color:var(--text); line-height:1.3; transition:color var(--trans); }
+    .p-en { font-size:10.5px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-soft); font-weight:400; }
+    .p-type { font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:var(--accent-dk); align-self:start; padding-top:8px; display:flex; align-items:center; gap:10px; }
+    .p-type::after { content:"↗"; font-size:13px; color:var(--text-soft); transition:transform var(--trans),color var(--trans); }
+    .portfolio-item:hover .p-type::after,
+    .portfolio-item:focus-visible .p-type::after { transform:translate(2px,-2px); color:var(--text); }
+
+    /* Featured items: larger title */
+    .portfolio-item:nth-child(1) .p-zh,
+    .portfolio-item:nth-child(7) .p-zh,
+    .portfolio-item:nth-child(13) .p-zh,
+    .portfolio-item:nth-child(19) .p-zh { font-size:30px; letter-spacing:0.05em; }
+
     .portfolio-item.hidden { display:none; }
+    .portfolio-item:focus-visible { outline:none; }
+    .portfolio-item:focus-visible .p-zh { color:var(--accent-dk); }
 
     /* LIGHTBOX */
     #lightbox { position:fixed; inset:0; z-index:999; background:rgba(20,20,20,0.97); display:none; flex-direction:column; }
@@ -199,37 +297,40 @@
     .lb-thumb.active, .lb-thumb:hover { opacity:1; }
     .lb-thumb img { width:100%; height:100%; object-fit:cover; }
 
-    /* PRESS */
-    #press { background:var(--surface); padding:72px 0; }
-    .press-label { font-size:9px; letter-spacing:0.38em; text-transform:uppercase; color:var(--accent-dk); text-align:center; margin-bottom:36px; }
-    .press-logos { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; }
-    .press-item { padding:20px 32px; border-right:1px solid var(--accent); text-align:center; }
-    .press-item:first-child { border-left:1px solid var(--accent); }
-    .press-name { font-family:var(--font-head); font-weight:300; font-size:13px; letter-spacing:0.12em; color:var(--accent-dk); }
-    .press-sub { font-size:9px; letter-spacing:0.2em; color:var(--accent); margin-top:3px; }
+    /* PRESS — 純留白、無分隔線 */
+    #press { background:var(--surface); padding:96px 0; }
+    .press-label { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); text-align:center; margin-bottom:48px; font-weight:400; }
+    .press-logos { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:48px 64px; max-width:980px; margin:0 auto; }
+    .press-item { text-align:center; padding:0; opacity:0.7; transition:opacity var(--trans); }
+    .press-item:hover { opacity:1; }
+    .press-name { font-family:var(--font-head); font-weight:300; font-size:14px; letter-spacing:0.08em; color:var(--text-mid); }
+    .press-sub { font-size:10px; letter-spacing:0.2em; color:var(--accent); margin-top:5px; }
 
     /* CONTACT */
     #contact { background:var(--bg); }
-    .contact-grid { max-width:640px; margin:0 auto; }
+    .contact-grid { max-width:680px; margin:0 auto; }
     .contact-info { text-align:center; }
-    .contact-info p { font-size:13px; line-height:2; color:var(--text-soft); margin-bottom:48px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .contact-info p { font-size:13.5px; line-height:2.1; color:var(--text-mid); margin-bottom:56px; max-width:540px; margin-left:auto; margin-right:auto; font-weight:300; }
     .contact-info .divider { margin-left:auto; margin-right:auto; }
-    .contact-details { display:flex; flex-direction:column; gap:24px; max-width:380px; margin:0 auto; text-align:left; }
-    .contact-detail { display:flex; gap:20px; align-items:flex-start; }
-    .detail-icon { width:36px; height:36px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .contact-details { display:flex; flex-direction:column; gap:28px; max-width:420px; margin:0 auto; text-align:left; }
+    .contact-detail { display:flex; gap:24px; align-items:flex-start; }
+    .detail-icon { width:40px; height:40px; border:1px solid var(--hairline); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:border-color var(--trans); }
+    .contact-detail:hover .detail-icon { border-color:var(--accent-dk); }
     .detail-icon svg { width:16px; height:16px; stroke:var(--accent-dk); fill:none; stroke-width:1.2; stroke-linecap:round; }
-    .detail-text .label { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:3px; }
-    .detail-text .value { font-size:13px; color:var(--text); line-height:1.6; }
+    .detail-text .label { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); margin-bottom:6px; font-weight:400; }
+    .detail-text .value { font-size:14px; color:var(--text); line-height:1.6; font-weight:300; }
+    .detail-text a.value { transition:color var(--trans); }
+    .detail-text a.value:hover { color:var(--accent-dk); }
 
-    /* FOOTER */
-    footer { background:var(--text); color:rgba(245,245,240,0.55); padding:56px 0; }
-    .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
-    .footer-brand .zh { font-family:var(--font-head); font-weight:300; font-size:17px; letter-spacing:0.12em; color:rgba(245,245,240,0.9); }
-    .footer-brand .en { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(245,245,240,0.35); margin-top:4px; }
-    .footer-copy { font-size:10px; letter-spacing:0.15em; }
-    .footer-links { display:flex; gap:28px; }
-    .footer-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(245,245,240,0.45); transition:color var(--trans); }
-    .footer-links a:hover { color:rgba(245,245,240,0.9); }
+    /* FOOTER — 反轉為淺色，與站點同調 */
+    footer { background:var(--surface); color:var(--text-soft); padding:64px 0 56px; border-top:1px solid var(--hairline); }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:28px; }
+    .footer-brand .zh { font-family:var(--font-head); font-weight:300; font-size:16px; letter-spacing:0.18em; color:var(--text); }
+    .footer-brand .en { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dk); margin-top:5px; }
+    .footer-copy { font-size:11px; letter-spacing:0.08em; color:var(--text-soft); }
+    .footer-links { display:flex; gap:32px; flex-wrap:wrap; }
+    .footer-links a { font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-soft); transition:color var(--trans); font-weight:400; }
+    .footer-links a:hover, .footer-links a:focus-visible { color:var(--text); }
 
     /* REVEAL */
     .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
@@ -237,45 +338,69 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){
-      .container{padding:0 36px;}
-      .about-grid{gap:48px;}
+      section{padding:120px 0;}
+      .container{padding:0 40px;}
+      .about-grid{gap:64px;}
       .service-cards{grid-template-columns:1fr 1fr;}
-      .language-grid{grid-template-columns:1fr;}
-      .form-row{grid-template-columns:1fr;}
-      .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+      .language-grid{grid-template-columns:1fr; gap:64px; max-width:480px; margin:0 auto;}
+      .portfolio-grid{grid-template-columns:repeat(12,1fr); column-gap:24px; row-gap:80px;}
+      .portfolio-item, .portfolio-item:nth-child(1), .portfolio-item:nth-child(7), .portfolio-item:nth-child(13), .portfolio-item:nth-child(19){grid-column:span 6;}
+      .portfolio-item:nth-child(2), .portfolio-item:nth-child(5), .portfolio-item:nth-child(10), .portfolio-item:nth-child(15), .portfolio-item:nth-child(20){margin-top:48px;}
+      .portfolio-item .p-image, .portfolio-item:nth-child(1) .p-image, .portfolio-item:nth-child(7) .p-image, .portfolio-item:nth-child(13) .p-image, .portfolio-item:nth-child(19) .p-image{aspect-ratio:4/3;}
+      .portfolio-item:nth-child(1) .p-zh, .portfolio-item:nth-child(7) .p-zh, .portfolio-item:nth-child(13) .p-zh, .portfolio-item:nth-child(19) .p-zh{font-size:22px;}
+      .awards{margin-top:112px; padding-top:80px;}
+      .awards-head{gap:64px;}
     }
     @media(max-width:900px){
-      .awards-head{grid-template-columns:1fr; gap:40px;}
-      .award-row{grid-template-columns:70px 1fr; gap:8px 24px;}
+      .awards-head{grid-template-columns:1fr; gap:32px; margin-bottom:64px;}
+      .awards-head p{max-width:560px;}
+      .award-row{grid-template-columns:70px 1fr; gap:6px 24px; padding:24px 0;}
       .award-row .award-prize{grid-column:2;}
       .award-row .award-project{grid-column:2;}
       .award-row .award-cat{grid-column:2; text-align:left;}
     }
     @media(max-width:768px){
-      :root{--nav-h:56px;}
+      :root{--nav-h:60px;}
       .container{padding:0 24px;}
-      section{padding:80px 0;}
-      .awards{margin-top:80px;padding-top:56px;}
+      section{padding:96px 0;}
+      .awards{margin-top:96px;padding-top:64px;}
       .nav-links{display:none;}
       .nav-toggle{display:flex;}
-      .hero-content{padding:0 24px 64px;}
+      .nav-logo .zh{font-size:14px;}
+      .nav-logo .en{font-size:8.5px;}
+      .hero-content{padding:0 24px 80px; max-width:100%;}
+      .hero-title{font-size:clamp(28px,6vw,44px);}
       .hero-kanji{display:none;}
-      .hero-scroll{right:24px;}
-      .about-grid{grid-template-columns:1fr;}
+      .hero-scroll{right:24px; bottom:28px;}
+      .about-grid{grid-template-columns:1fr; gap:56px;}
       .about-visual{order:-1;}
-      .about-accent-block{display:none;}
-      .about-stats{gap:24px;}
-      .services-head{margin-bottom:40px;}
+      .about-img-wrap{aspect-ratio:4/3;}
+      .about-stats{gap:24px; flex-wrap:wrap;}
+      .stat-item{min-width:140px;}
+      .stat-num{font-size:28px;}
+      .services-head{margin-bottom:56px;}
       .service-cards{grid-template-columns:1fr;}
-      #language{padding:80px 0;}
-      .language-head{margin-bottom:56px;}
-      .language-card{padding:48px 32px 40px;}
-      .lang-glyph{font-size:48px;}
+      .service-card{padding:48px 0 !important;}
+      .service-card:nth-child(even){padding-left:0 !important; border-left:none;}
+      .service-card:hover{padding-left:0 !important;}
+      #language{padding:96px 0;}
+      .language-head{margin-bottom:72px;}
+      .lang-glyph{font-size:56px;}
       .portfolio-head{flex-direction:column;align-items:flex-start;gap:16px;}
-      .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+      .portfolio-filter{margin-bottom:64px;}
+      .portfolio-grid{grid-template-columns:repeat(12,1fr); column-gap:16px; row-gap:64px;}
+      .portfolio-item, .portfolio-item:nth-child(1), .portfolio-item:nth-child(7), .portfolio-item:nth-child(13), .portfolio-item:nth-child(19){grid-column:span 6;}
+      .portfolio-item:nth-child(2), .portfolio-item:nth-child(5), .portfolio-item:nth-child(10), .portfolio-item:nth-child(15), .portfolio-item:nth-child(20){margin-top:32px;}
+      .p-meta{grid-template-columns:auto 1fr; column-gap:14px; padding-top:14px; margin-top:16px;}
+      .p-type{display:none;}
+      .p-zh, .portfolio-item:nth-child(1) .p-zh, .portfolio-item:nth-child(7) .p-zh, .portfolio-item:nth-child(13) .p-zh, .portfolio-item:nth-child(19) .p-zh{font-size:15px;}
+      .p-en{font-size:9.5px; letter-spacing:0.2em;}
+      .p-index{font-size:9.5px; padding-top:4px;}
+      .filter-tab{font-size:10.5px; padding:12px 16px 12px 0; margin-right:18px;}
+      .press-logos{gap:32px 40px;}
       .contact-details{max-width:100%;}
       .footer-inner{flex-direction:column;text-align:center;}
-      .footer-links{flex-wrap:wrap;justify-content:center;}
+      .footer-links{justify-content:center;}
       .lb-thumbs{display:none;}
       .lb-btn{width:36px;height:36px;}
       .lb-info-toggle{display:flex;}
@@ -285,20 +410,25 @@
       .lb-info-inner{padding:32px 24px 32px;}
     }
     @media(max-width:480px){
-      .portfolio-grid{grid-template-columns:1fr;}
-      .press-item:first-child{border-left:none;}
-      .press-item{border-right:none;border-bottom:1px solid var(--accent);width:100%;}
+      :root{--nav-h:56px;}
+      section{padding:80px 0;}
+      .container{padding:0 20px;}
+      .hero-content{padding:0 20px 60px;}
+      .portfolio-grid{grid-template-columns:repeat(12,1fr); column-gap:12px; row-gap:48px;}
+      .footer-inner{gap:20px;}
     }
   </style>
 </head>
 <body>
 
+<h1 class="vh">山木生設計 SMS Interior Design — 住宅、商業空間與塗料工藝設計工作室</h1>
+
 <!-- NAV -->
-<nav id="nav">
+<nav id="nav" aria-label="主要導覽">
   <div class="container">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <img src="images/logo.jpg" alt="山木生設計" onerror="this.style.display='none'">
+      <a href="#hero" class="nav-logo" aria-label="回到首頁 — 山木生設計">
+        <img src="images/logo.jpg" alt="" onerror="this.style.display='none'">
         <div>
           <div class="zh">山木生設計</div>
           <div class="en">SMS Interior Design</div>
@@ -310,12 +440,12 @@
         <li><a href="#portfolio">作品集</a></li>
         <li><a href="#contact">聯絡</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="選單">
+      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="navDrawer">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-  <div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
     <a href="#about"     onclick="closeDrawer()">關於我們</a>
     <a href="#services"  onclick="closeDrawer()">服務項目</a>
     <a href="#portfolio" onclick="closeDrawer()">作品集</a>
@@ -324,26 +454,27 @@
 </nav>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" aria-label="主視覺">
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active"><img src="images/hero/p03.jpg" alt="山木生設計 主視覺 1" /></div>
-    <div class="hero-slide"><img src="images/hero/p04.jpg" alt="山木生設計 主視覺 2" /></div>
-    <div class="hero-slide"><img src="images/hero/p05.jpg" alt="山木生設計 主視覺 3" /></div>
+    <div class="hero-slide active"><img src="images/hero/p03.jpg" alt="山木生設計作品主視覺 — 自然光下的木質居家空間" /></div>
+    <div class="hero-slide"><img src="images/hero/p04.jpg" alt="山木生設計作品主視覺 — 純粹比例的客廳場景" /></div>
+    <div class="hero-slide"><img src="images/hero/p05.jpg" alt="山木生設計作品主視覺 — 灰泥牆面與光影的對話" /></div>
   </div>
   <div class="hero-overlay"></div>
-  <div class="hero-kanji">生</div>
+  <div class="hero-kanji" aria-hidden="true">生</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">SMS Interior Design &nbsp;·&nbsp; Since 2011 &nbsp;·&nbsp; Taipei / Shanghai</p>
-    <h1 class="hero-title">
+    <p class="hero-eyebrow">SMS Interior Design<span class="dot"></span>Since 2011<span class="dot"></span>Taipei / Shanghai</p>
+    <h2 class="hero-title">
       空間，是時間的詩
-    </h1>
-    <p class="hero-desc">山木生設計相信，真正的好設計不在於繁複的裝飾，而在於材質、光影與比例之間的純粹對話——讓每一個角落都能訴說屬於自己的故事。</p>
+      <em>Space is a poem of time</em>
+    </h2>
+    <p class="hero-desc">真正的好設計，不在於繁複的裝飾，而在於材質、光影與比例之間的純粹對話——讓每一個角落，都能訴說屬於自己的故事。</p>
     <a href="#portfolio" class="btn-outline">
       探索作品
-      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
 <!-- ABOUT -->
@@ -351,23 +482,31 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text reveal">
-        <p class="section-label">About Us</p>
+        <p class="section-label">About</p>
         <h2 class="section-title">關於山木生<span>Studio Profile</span></h2>
         <div class="divider"></div>
         <p>山木生設計，2011 年於台北成立。我們是一間以東方美學為核心、深耕住宅與商業空間的設計工作室。</p>
-        <p>從預售屋到中古屋翻新，從辦公室到餐酒空間——我們相信好的設計來自深度的傾聽，每一個空間都承載著主人獨一無二的故事。</p>
-        <p>2018 年起設立塗料部門，引進義大利古法灰泥工藝，提供從思考、選材到落地的一站式整合服務，讓設計的每一個層次都能被實踐。</p>
+        <p>從預售屋到中古屋翻新，從辦公室到餐酒空間——好的設計來自深度的傾聽。每一個空間，都承載著主人獨一無二的故事。</p>
+        <p>2018 年成立子公司「泛亞材料」，引進義大利古法灰泥工藝，提供從思考、選材到落地的一站式整合服務，讓設計的每一個層次都能被實踐。</p>
         <div class="about-stats">
-          <div class="stat-item"><div class="stat-num">2011<span class="stat-unit"></span></div><div class="stat-label">品牌成立</div></div>
-          <div class="stat-item"><div class="stat-num">10<span class="stat-unit">+</span></div><div class="stat-label">年深耕積累</div></div>
-          <div class="stat-item"><div class="stat-num">APIDA<span class="stat-unit"></span></div><div class="stat-label">國際肯定</div></div>
+          <div class="stat-item">
+            <div class="stat-num">2011</div>
+            <div class="stat-label">品牌成立</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">15<span class="stat-unit">年</span></div>
+            <div class="stat-label">設計深耕</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2<span class="stat-unit">岸</span></div>
+            <div class="stat-label">台北 / 上海</div>
+          </div>
         </div>
       </div>
       <div class="about-visual reveal">
         <div class="about-img-wrap">
-          <img src="images/about/greenhouse.jpg" alt="山木生設計 — 綠意小屋" />
+          <img src="images/about/hero-exterior.png" alt="山木生設計 — 極簡日式建築外觀，禪意庭園" loading="lazy" />
         </div>
-        <div class="about-accent-block"></div>
       </div>
     </div>
 
@@ -408,8 +547,8 @@
         </div>
         <div class="award-row">
           <div class="award-year">2018</div>
-          <div class="award-prize">Atelier<strong>塗料部門成立</strong></div>
-          <div class="award-project">義大利古法灰泥工藝<span>Italian Lime Plaster Studio</span></div>
+          <div class="award-prize">Subsidiary<strong>成立泛亞材料</strong></div>
+          <div class="award-project">義大利古法灰泥工藝<span>Pan-Asia Material · Italian Lime Plaster</span></div>
           <div class="award-cat">Material · 工藝</div>
         </div>
         <div class="award-row">
@@ -423,49 +562,6 @@
       <p class="awards-footnote">
         ※ APIDA（Asia Pacific Interior Design Awards）由香港室內設計協會（HKIDA）主辦，是亞洲歷史最悠久、最具公信力的室內設計獎項之一。
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- DESIGN LANGUAGE -->
-<section id="language">
-  <div class="container">
-    <div class="language-head reveal">
-      <p class="section-label">Design Language</p>
-      <h2 class="section-title">我們的設計語言<span>Three Pillars</span></h2>
-      <p class="lang-lead">山、木、生──三個字，三種眼光。<br>它們是骨幹、是肌理、是靈魂，也是我們閱讀每一個空間的方式。</p>
-    </div>
-    <div class="language-grid">
-      <div class="language-card reveal">
-        <div class="lang-glyph">山</div>
-        <div class="lang-icon">
-          <svg viewBox="0 0 36 36"><path d="M3 30 L13 12 L20 22 L24 16 L33 30 Z"/></svg>
-        </div>
-        <div class="lang-title">結構之美</div>
-        <span class="lang-en">Structure</span>
-        <div class="lang-rule"></div>
-        <p class="lang-desc">以嚴謹的比例與幾何秩序為基底，每一道牆面、每一條線條精準計算，賦予空間沉穩的骨架與永恆的力量感。</p>
-      </div>
-      <div class="language-card reveal">
-        <div class="lang-glyph">木</div>
-        <div class="lang-icon">
-          <svg viewBox="0 0 36 36"><ellipse cx="18" cy="18" rx="14" ry="6"/><ellipse cx="18" cy="18" rx="9" ry="4"/><ellipse cx="18" cy="18" rx="4" ry="2"/></svg>
-        </div>
-        <div class="lang-title">材質之詩</div>
-        <span class="lang-en">Material</span>
-        <div class="lang-rule"></div>
-        <p class="lang-desc">精選天然材質，讓木、石、金屬在空間中展開純粹的對話。拒絕繁複的裝飾堆砌，以材質本身的紋理訴說深沉的美學。</p>
-      </div>
-      <div class="language-card reveal">
-        <div class="lang-glyph">生</div>
-        <div class="lang-icon">
-          <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="6"/><line x1="18" y1="3" x2="18" y2="9"/><line x1="18" y1="27" x2="18" y2="33"/><line x1="3" y1="18" x2="9" y2="18"/><line x1="27" y1="18" x2="33" y2="18"/><line x1="7" y1="7" x2="11" y2="11"/><line x1="25" y1="25" x2="29" y2="29"/><line x1="7" y1="29" x2="11" y2="25"/><line x1="25" y1="11" x2="29" y2="7"/></svg>
-        </div>
-        <div class="lang-title">光影之魂</div>
-        <span class="lang-en">Light</span>
-        <div class="lang-rule"></div>
-        <p class="lang-desc">光是最偉大的設計師。我們精心規劃光線的路徑，讓自然光在空間中流動、駐足，隨著時間的推移呈現無窮的詩意變化。</p>
-      </div>
     </div>
   </div>
 </section>
@@ -495,7 +591,7 @@
         <div class="service-icon"><svg viewBox="0 0 44 44"><path d="M14 8 L30 8 L32 14 L32 32 C32 34 30 36 28 36 L16 36 C14 36 12 34 12 32 L12 14 Z"/><path d="M18 16 L26 16"/><path d="M18 22 L26 22"/></svg></div>
         <div class="service-title">塗料工藝</div>
         <span class="service-en">Material &amp; Plaster</span>
-        <p class="service-desc">自 2018 年起，山木生塗料部門引進義大利頂級灰泥技術，提供從材質選配到施工的一站式服務，讓牆面成為空間的靈魂。</p>
+        <p class="service-desc">2018 年成立子公司「泛亞材料」，引進義大利頂級灰泥技術，提供從材質選配到施工的一站式服務，讓牆面成為空間的靈魂。</p>
       </div>
       <div class="service-card reveal">
         <div class="service-icon"><svg viewBox="0 0 44 44"><rect x="6" y="20" width="10" height="16"/><rect x="18" y="12" width="10" height="24"/><rect x="30" y="6" width="8" height="30"/></svg></div>
@@ -516,10 +612,10 @@
         <h2 class="section-title">精選作品<span>Selected Works</span></h2>
       </div>
     </div>
-    <div class="portfolio-filter reveal">
-      <span class="filter-tab active" onclick="filterPortfolio(this,'all')">全部</span>
-      <span class="filter-tab" onclick="filterPortfolio(this,'residential')">住宅</span>
-      <span class="filter-tab" onclick="filterPortfolio(this,'commercial')">商業</span>
+    <div class="portfolio-filter reveal" role="tablist" aria-label="作品分類">
+      <button type="button" class="filter-tab active" role="tab" aria-selected="true" onclick="filterPortfolio(this,'all')">全部 · All</button>
+      <button type="button" class="filter-tab" role="tab" aria-selected="false" onclick="filterPortfolio(this,'residential')">住宅 · Residential</button>
+      <button type="button" class="filter-tab" role="tab" aria-selected="false" onclick="filterPortfolio(this,'commercial')">商業 · Commercial</button>
     </div>
     <div class="portfolio-grid" id="portfolioGrid"></div>
   </div>
@@ -551,16 +647,16 @@
         <p>無論您正在籌備新居、規劃商業空間，或是希望為既有空間注入新的生命——歡迎與我們展開一場關於空間的對話。山木生設計提供免費初步諮詢服務。</p>
         <div class="contact-details">
           <div class="contact-detail">
-            <div class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg></div>
+            <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg></div>
             <div class="detail-text"><div class="label">Principal · 主理人</div><div class="value">Norbert Fu</div></div>
           </div>
           <div class="contact-detail">
-            <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
             <div class="detail-text"><div class="label">Studio · 台北辦公室</div><div class="value">新北市新店區僑信路 111 號</div></div>
           </div>
           <div class="contact-detail">
-            <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div class="detail-text"><div class="label">Phone · 市話</div><div class="value">02-2214-0908</div></div>
+            <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="detail-text"><div class="label">Phone · 聯絡電話</div><div class="value"><a class="value" href="tel:+886222140908">02-2214-0908</a></div></div>
           </div>
         </div>
       </div>
@@ -618,72 +714,117 @@
 
 <script>
 // ── Portfolio data ──────────────────────────────────────────────
-// 依照山木生設計 profile 的美學標準篩選：山（結構）、木（材質）、生（光影）
+// 中英文名稱以山木生設計原始作品集頁面之命名為準
 // 已過濾低解析度照片；以及與整體調性不符的作品。
 const PROJECTS = [
-  { id:'mu_house',    zh:'木屋',          en:'Mu House',          type:'residential', tagline:'木——以材質本身訴說美學',
+  // ── 住宅 Residential ─────────────────────────────────────────
+  { id:'mu_house',    zh:'牧寓',              en:'Mu House',             type:'residential', tagline:'木——以材質本身訴說美學',
     desc:'以原木為主軸的居家空間，不刻意修飾的木紋與柔和光線交織，將自然的呼吸引入每日節奏。家具尺度貼近身體，留白替代裝飾，讓木材本身成為最深沉的語言。',
-    photos:['05b.jpg','01b.jpg','03b.jpg','04b.jpg','06b.jpg','07b.jpg'] },
+    photos:['01b.jpg','05b.jpg','03b.jpg','04b.jpg','06b.jpg','07b.jpg'] },
 
-  { id:'LakeSight',   zh:'湖景宅',        en:'Lake Sight',        type:'residential', tagline:'生——借景入室，視野是最大的留白',
-    desc:'面向湖景的開窗成為空間的主角，室內以淺灰木皮與石材保留中性語彙，不喧賓奪主。家具量體輕巧、線條收斂，讓視線得以無阻地延伸到水面。',
-    photos:['10b.jpg','16b.jpg','18b.jpg','20b.jpg'] },
+  { id:'whitehouse',  zh:'白屋',              en:'White House',          type:'residential', tagline:'純白，是最寬厚的容納',
+    desc:'近乎全白的空間並非空無，而是給予生活最大的自由度。藉由垂直水平的線條整合氛圍，讓色彩低限度、單純灰階營造呼吸感。木質家具與窗外綠意，成為畫面唯一溫柔的色彩變化。',
+    photos:['01b.jpg','03b.jpg','08b.jpg','09b.jpg'] },
 
-  { id:'mountain',    zh:'山居',          en:'Mountain',          type:'residential', tagline:'山——結構之美，沉穩的居所骨架',
-    desc:'借自然之名，將石材的厚度與木紋的溫度引入室內。粗獷與細膩在同一個空間中各自成形，使家既有依靠的安定，也有呼吸的餘裕。',
-    photos:['01b.jpg','02b.jpg','06b.jpg','09b.jpg'] },
-
-  { id:'whitehouse',  zh:'白宅',          en:'White House',       type:'residential', tagline:'純白，是最寬厚的容納',
-    desc:'近乎全白的空間並非空無，而是給予生活最大的自由度。木質家具與綠意成為畫面唯一的色彩變化，每一道光的軌跡都被空間溫柔承接。',
-    photos:['01b.jpg','03b.jpg'] },
-
-  { id:'Cloud',       zh:'雲宅',          en:'Cloud',             type:'residential', tagline:'輕盈、流動、無聲',
+  { id:'Cloud',       zh:'雲',                en:'Cloud',                type:'residential', tagline:'輕盈、流動、無聲',
     desc:'淺色調與漂浮感家具，讓空間如雲般輕薄。捨去多餘隔間，以材質的微差界定機能；天花的線性燈光與通透開窗，為日常注入透氣的步調。',
-    photos:['01b.jpg','03b.jpg','04b.jpg','05b.jpg','11b.jpg','12b.jpg','14b.jpg','15b.jpg'] },
+    photos:['12b.jpg','01b.jpg','03b.jpg','04b.jpg','05b.jpg','11b.jpg','14b.jpg','15b.jpg'] },
 
-  { id:'pathways',    zh:'徑',            en:'Pathways',          type:'residential', tagline:'光沿著動線，緩緩流動',
+  { id:'thecave',     zh:'凹，深陷也·鑿穴居', en:'The Cave',             type:'residential', tagline:'石與銅，守護家的記憶',
+    desc:'以「穴居」為出發，在立面的質地與紋理中體現。借用石材與銅條的物理性，象徵守護著孩子慢慢長大的家園，灰泥牆上的全家福手印，就這樣持續乘載著家的記憶。錯位與凹間交互對話，將收納藏於無形之中。',
+    photos:['01b.jpg','03b.jpg','05b.jpg','06b.jpg','07b.jpg','10b.jpg','11b.jpg','12b.jpg'] },
+
+  { id:'HouseF',      zh:'和寂清淨',          en:'House F',              type:'residential', tagline:'靜，是最深的禮遇',
+    desc:'以日式美學「和寂清淨」為核心，在減法之後尋找真正的豐盈。自然光是唯一的主角，素材本身的紋理取代了多餘的裝飾，讓每一個角落都能靜下來，與自己對話。',
+    photos:['01b.jpg','03b.jpg','06b.jpg','13b.jpg','14b.jpg','16b.jpg'] },
+
+  { id:'hut_in_the_secular', zh:'結廬人境', en:'Hut in the Secular',    type:'residential', tagline:'鬧中取靜，築一方餘白',
+    desc:'取陶淵明「結廬在人境，而無車馬喧」之意，在城市的喧囂中打造一處靜謐居所。以留白的姿態回應日常的繁雜，自然材質與溫潤光線讓空間成為每次回家的儀式。',
+    photos:['02b.png','06b.png','08b.png','11b.png'] },
+
+  { id:'MusicHouse',  zh:'音符・節奏・樂章',  en:'Music House',          type:'residential', tagline:'空間是凝固的音樂',
+    desc:'以音樂三要素——音符、節奏、樂章——轉譯為空間的點、線、面。線條如旋律般流動，材質的輕重如節拍交替，整個空間是一首以光與素材譜寫的無聲樂曲。',
+    photos:['01b.jpg','07b.jpg','08b.jpg','09b.jpg','10b.jpg','11b.jpg','12b.jpg','13b.jpg','16b.jpg','17b.jpg'] },
+
+  { id:'legocity',    zh:'Legocity',          en:'Legocity',             type:'residential', tagline:'積木的邏輯，孩子的城市',
+    desc:'以積木的模組化邏輯切入居家設計，色彩、形體、比例遵循一套內在秩序。整齊的堆疊中藏著無限可能，是一個讓想像力自由生長的立體居所。',
+    photos:['01b.jpg','02b.jpg','04b.jpg','06b.jpg','08b.jpg'] },
+
+  { id:'pathways',    zh:'通道',              en:'Pathways',             type:'residential', tagline:'光沿著動線，緩緩流動',
     desc:'以一條穿堂而過的軸線串連各區，光線沿著動線移動，在地面與牆上留下細微變化。日常因此擁有節奏，每一次走過都像是一段小旅行。',
     photos:['05b.jpg','02b.jpg','08b.jpg','13b.jpg'] },
 
-  { id:'present',     zh:'禮物宅',        en:'Present',           type:'residential', tagline:'設計，是給生活的禮物',
-    desc:'剛剛好的尺度、剛剛好的收納、剛剛好的光。設計不為展演而存在，而是讓每天回家的瞬間，都像收到一份簡單卻誠懇的禮物。',
+  { id:'present',     zh:'給孩子的禮物',      en:'Present',              type:'residential', tagline:'家是讓孩子安心長大的處所',
+    desc:'餘裕之心、自然體、生活感成了這個家的基本要素。雙回型燈軌設計圍出一圈圈溫暖的光與想像，孩子在無段差的平面間自由奔跑、閱讀、遊戲，將最樸素的快樂留在每一個角落。',
     photos:['01b.jpg','02b.jpg','03b.jpg'] },
 
-  { id:'houseSue',    zh:'Sue 宅',        en:'Sue\u2019s House',  type:'residential', tagline:'量身的尺度，巧思藏於細節',
-    desc:'根據使用者的身高、習慣與動線量身打造的小宅。每一處收納都呼應著日常動作，看似不費力的便利，其實是反覆推敲後的精準設計。',
-    photos:['03b.jpg','05b.jpg','11b.jpg','13b.jpg','14b.jpg'] },
+  { id:'houseSue',    zh:'思慕巴黎',          en:'House Sue',            type:'residential', tagline:'知性的探索，感性的玩味',
+    desc:'一如巴黎女人予人印象，融合美式尺度與法式情懷，打造屬於女主人的私密空間。從外部的「動」走回純屬自我的「鬆」與「靜」，隱微而溫柔，如同回到母親純粹的懷抱。',
+    photos:['14b.jpg','03b.jpg','05b.jpg','11b.jpg','13b.jpg'] },
 
-  { id:'ColorLine',   zh:'彩線居',        en:'Color Line',        type:'residential', tagline:'低彩度中的視覺軸線',
-    desc:'以中性淺色為底，輔以細緻的線條切割與材質對比，在沉靜中拉出空間層次。看似簡單的構成裡，藏著光線、材質與比例三者間的反覆推敲。',
-    photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','07b.jpg','16b.jpg','19b.jpg'] },
+  { id:'ColorLine',   zh:'色塊與線條',        en:'Color & Line',         type:'residential', tagline:'低彩度中的視覺軸線',
+    desc:'異材質間立體排列，創造幾何式的色塊組合。厚實的鐵灰色與紅銅仿古面展現紀律與力道，由接縫自然形成虛構的線，在詩意的揮毫潑墨間詮釋，讓心靈得以沉靜。',
+    photos:['02b.jpg','01b.jpg','03b.jpg','06b.jpg','07b.jpg','16b.jpg','19b.jpg'] },
 
-  { id:'hive',        zh:'蜂巢居',        en:'Hive',              type:'residential', tagline:'混凝土與微光下的安棲',
-    desc:'以混凝土天花、深色塗料與光的精準佈局塑造沉穩居所。剛與柔在同一場域對話，將都市的喧囂阻隔在外，讓夜晚回到最深的安靜。',
-    photos:['15b.jpg','17b.jpg','13b.jpg','11b.jpg','07b.jpg','05b.jpg','04b.jpg','16b.jpg','22b.jpg'] },
+  // ── 商空 Commercial ──────────────────────────────────────────
+  { id:'hive',        zh:'Hive Hotel',        en:'Hive Hotel',           type:'commercial',  tagline:'混凝土與微光下的旅宿',
+    desc:'以混凝土天花、深色塗料與光的精準佈局塑造沉穩旅宿。剛與柔在同一場域對話，將都市的喧囂阻隔在外，讓旅人在這裡回到最深的安靜。',
+    photos:['04b.jpg','15b.jpg','17b.jpg','13b.jpg','11b.jpg','07b.jpg','05b.jpg','16b.jpg','22b.jpg'] },
 
-  { id:'hotel',       zh:'辦公空間',      en:'Office',            type:'commercial',  tagline:'以純粹比例與光界定秩序',
-    desc:'以純粹比例與自然質地界定秩序，營造沉穩而開放的工作場域。線性燈光劃過天花，為思考與創造保留自在延展的餘地。',
-    photos:['05b.jpg','09b.jpg'] },
+  { id:'hotel',       zh:'上善若水',          en:'Like Water',           type:'commercial',  tagline:'以水之德——柔順而堅韌',
+    desc:'借《老子》「上善若水」之意，以純粹比例與自然質地界定秩序。線性燈光劃過天花，水般的柔順與石材的厚實在同一場域共存，沉穩而開放。',
+    photos:['10b.jpg','01b.jpg','05b.jpg','06b.jpg','09b.jpg'] },
 
-  { id:'a_community', zh:'社區公共空間',  en:'Community Lounge',  type:'commercial',  tagline:'屬於所有人的第二客廳',
-    desc:'以家的尺度回應公共空間。溫潤的木作、低調的燈光、可以靜靜閱讀也能熱鬧聚會的彈性配置——讓鄰里之間多一處願意停留的地方。',
-    photos:['01b.jpg','07b.jpg','09b.jpg','13b.jpg'] },
+  { id:'a_community', zh:'A Community',       en:'A Community',          type:'commercial',  tagline:'以家的尺度款待餐桌',
+    desc:'以家的溫度重新定義餐廳。溫潤的木作、低調的燈光、收斂的線條，讓人在這裡用餐、停留、對話——像是回到一個熟悉的客廳，而非走進一間店。',
+    photos:['09b.jpg','01b.jpg','07b.jpg','13b.jpg'] },
+
+  { id:'Alice_in_wonderland', zh:'Alice in Wonderland', en:'Alice in Wonderland', type:'commercial', tagline:'掉進兔子洞，迷失在美麗中',
+    desc:'以愛麗絲夢遊仙境為創作原點，打造一個充滿奇想的商業空間。比例的錯置、材質的反差、光線的戲劇性佈局，讓每位訪客都能暫時逃離現實，進入另一個次元的美學體驗。',
+    photos:['01b.jpg','03b.jpg','06b.jpg','08b.jpg','09b.jpg','12b.jpg','14b.jpg','17b.jpg','18b.jpg','19b.jpg','21b.jpg','22b.jpg'] },
+
+  { id:'DineIn',      zh:'DINE IN',           en:'Dine In',              type:'commercial',  tagline:'留下來，好好吃一頓飯',
+    desc:'「DINE IN」，選擇留下來。以溫暖的燈光、精緻的材質與從容的座位配置，為每一組用餐者創造屬於自己的時刻。進來了，就不想走了。',
+    photos:['01b.jpg','04b.jpg','10b.jpg','13b.jpg','14b.jpg'] },
+
+  { id:'Jonny_ukulele', zh:'Jonny 的烏克麗麗', en:"Jonny's Ukulele",    type:'commercial',  tagline:'弦音為家，樂器為牆',
+    desc:'為烏克麗麗演奏者量身打造的音樂工作室。溫潤的木質包圍聲音，每一件樂器都是展示品，也是日常夥伴。空間的設計，讓音樂自然地流淌在生活之中。',
+    photos:['01b.jpg','02b.jpg','03b.jpg','04b.jpg','05b.jpg','07b.jpg'] },
+
+  { id:'PetHotel',    zh:'Pet Hotel',         en:'Pet Hotel',            type:'commercial',  tagline:'毛孩子的度假小屋',
+    desc:'為寵物與主人共同設計的溫柔場所。乾淨、明亮、親切，空間的每一個細節都從動物的視角出發，讓毛孩子安心、讓主人放心，在這裡，照顧是一種享受。',
+    photos:['01b.jpg','02b.jpg','03b.jpg','06b.jpg','09b.jpg'] },
+
+  { id:'magic_rock',  zh:'魔幻搖滾',          en:'Magic Rock',           type:'commercial',  tagline:'搖滾的粗礪，與優雅共舞',
+    desc:'以搖滾樂的能量為靈感，在粗獷的材質與精緻的細節之間找到張力。混凝土、鐵件、復古燈光交織出充滿故事的場域，讓每個夜晚都帶著魔幻的餘韻。',
+    photos:['main.jpg','01b.jpg','02b.jpg','03b.jpg','04b.jpg','05b.jpg','06b.jpg','07b.jpg'] },
+
+  { id:'spirits_wisdom', zh:'酒心智庫',       en:'Spirits & Wisdom',     type:'commercial',  tagline:'每瓶酒，都是一段時光的收藏',
+    desc:'以「智庫」為概念，將酒窖轉化為知識與品味的殿堂。深色木質書架與精選燈光讓每瓶酒如珍藏典籍般陳列，在這裡飲酒，也是一次關於時間與風土的學問。',
+    photos:['main.png','01b.png','02b.png','03b.png','04b.png','05b.png','06b.png','07b.png'] },
 ];
 
 // ── Build portfolio grid ────────────────────────────────────────
 const grid = document.getElementById('portfolioGrid');
+const TYPE_LABEL = { residential:'Residence', commercial:'Commercial' };
 PROJECTS.forEach((p, i) => {
-  const item = document.createElement('div');
+  const item = document.createElement('button');
+  item.type = 'button';
   item.className = 'portfolio-item reveal';
   item.dataset.type = p.type;
+  item.setAttribute('aria-label', `查看作品：${p.zh}（${p.en}）`);
+  const num = String(i + 1).padStart(2, '0');
   item.innerHTML = `
-    <div class="portfolio-thumb">
-      <img src="images/portfolio/${p.id}/${p.photos[0]}" alt="${p.zh}" loading="lazy" />
+    <div class="p-image">
+      <img src="images/portfolio/${p.id}/${p.photos[0]}" alt="${p.zh} — ${p.tagline || p.en}" loading="lazy" />
     </div>
-    <div class="portfolio-overlay">
-      <div class="portfolio-info">
-        <h3>${p.zh}</h3>
+    <div class="p-meta">
+      <span class="p-index">${num} ／</span>
+      <div class="p-title">
+        <h3 class="p-zh">${p.zh}</h3>
+        <span class="p-en">${p.en}</span>
       </div>
+      <span class="p-type">${TYPE_LABEL[p.type] || ''}</span>
     </div>`;
   item.addEventListener('click', () => openLightbox(i));
   grid.appendChild(item);
@@ -691,8 +832,12 @@ PROJECTS.forEach((p, i) => {
 
 // ── Filter ──────────────────────────────────────────────────────
 function filterPortfolio(tab, type) {
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.filter-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
   tab.classList.add('active');
+  tab.setAttribute('aria-selected', 'true');
   document.querySelectorAll('.portfolio-item').forEach(item => {
     const show = type === 'all' || item.dataset.type === type;
     item.classList.toggle('hidden', !show);
@@ -777,14 +922,14 @@ lbEl.addEventListener('touchend',   e => {
   if (Math.abs(dx) > 50) lbNavigate(dx < 0 ? 1 : -1);
 }, {passive:true});
 
-// ── Hero slideshow ──────────────────────────────────────────────
+// ── Hero slideshow（更安靜的節奏：7s）───────────────────────────
 const slides = document.querySelectorAll('.hero-slide');
 let current = 0;
 setInterval(() => {
   slides[current].classList.remove('active');
   current = (current + 1) % slides.length;
   slides[current].classList.add('active');
-}, 5000);
+}, 7000);
 
 // ── Nav ─────────────────────────────────────────────────────────
 const nav = document.getElementById('nav');
@@ -792,19 +937,34 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
 const toggle = document.getElementById('navToggle');
 const drawer = document.getElementById('navDrawer');
-toggle.addEventListener('click', () => { toggle.classList.toggle('open'); drawer.classList.toggle('open'); });
-function closeDrawer() { toggle.classList.remove('open'); drawer.classList.remove('open'); }
+toggle.addEventListener('click', () => {
+  const open = !toggle.classList.contains('open');
+  toggle.classList.toggle('open', open);
+  drawer.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  drawer.setAttribute('aria-hidden', String(!open));
+  toggle.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+});
+function closeDrawer() {
+  toggle.classList.remove('open');
+  drawer.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  drawer.setAttribute('aria-hidden', 'true');
+  toggle.setAttribute('aria-label', '開啟選單');
+}
 
-// ── Scroll reveal ───────────────────────────────────────────────
+// ── Scroll reveal（克制階梯：120ms 且只前 3 個生效）──────────────
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const siblings = [...entry.target.parentElement.children].filter(c => c.classList.contains('reveal'));
     const idx = siblings.indexOf(entry.target);
-    setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+    const delay = prefersReducedMotion ? 0 : Math.min(idx, 2) * 120;
+    setTimeout(() => entry.target.classList.add('visible'), delay);
     revealObs.unobserve(entry.target);
   });
-}, { threshold:0.1, rootMargin:'0px 0px -40px 0px' });
+}, { threshold:0.08, rootMargin:'0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // ── Smooth scroll ───────────────────────────────────────────────
