@@ -3,3 +3,19 @@ backup-*/
 整理/
 .DS_Store
 Thumbs.db
+
+# 部署腳本（含敏感 token，勿 commit）
+deploy.sh
+push-update.sh
+deploy-pages.sh
+add-custom-domain.sh
+fix-dns-deploy.sh
+fix-dns-deploy.sh
+
+# Wrangler 暫存（含 account ID）
+.wrangler/
+.wranglerignore
+
+# 其他非網站檔案
+*.pdf
+.env
