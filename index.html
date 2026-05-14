@@ -23,9 +23,7 @@
   <meta name="twitter:description" content="空間，是時間的詩。山木生設計，2011 年成立於台北。" />
   <meta name="twitter:image" content="https://www.sms-interior.com/images/hero/p03.jpg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <!-- 使用系統字體，避免外部 CDN 隱私風險 -->
 
   <!-- Structured data: LocalBusiness -->
   <script type="application/ld+json">
@@ -60,9 +58,9 @@
       --accent:#BDBDBD; --accent-dk:#8E8E8E; --hairline:#E2E2DC;
       --text:#1F1F1F; --text-mid:#4A4A4A; --text-soft:#6E6E6E;
       --white:#FFF; --nav-h:72px;
-      /* Typography — Helvetica Light + Noto Sans TC fallback */
-      --font-head:'Helvetica Neue', Helvetica, 'Noto Sans TC', sans-serif;
-      --font-body:'Helvetica Neue', Helvetica, 'Noto Sans TC', sans-serif;
+      /* Typography — 系統字體堆疊（無外部 CDN） */
+      --font-head:'Helvetica Neue', Helvetica, 'PingFang TC', 'Apple LiGothic', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+      --font-body:'Helvetica Neue', Helvetica, 'PingFang TC', 'Apple LiGothic', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
       --trans:0.4s cubic-bezier(0.4,0,0.2,1);
       /* Type scale (modular) */
       --fs-xs:11px; --fs-sm:13px; --fs-base:14px; --fs-md:16px;
